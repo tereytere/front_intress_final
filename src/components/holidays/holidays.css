@@ -1,60 +1,101 @@
-.calendarContainer {
-    background-color: rgba(217, 217, 217, 1);
-    padding: 20px;
-    border-radius: 10px;
-    width: 50%;
-    align-items: center;
-    justify-content: center;
-    margin-left: 5%;
-    height: auto;
+/* Calendario */
+
+.calendar {
+  background-color: rgba(217, 217, 217, 1);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* Encabezado */
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: rgba(240, 240, 240, 1);
+  color: rgba(0, 136, 148, 1);
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 1rem 0;
+}
+
+.header .cell {
+  flex-basis: 14.28%;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.header .hidden-mobile {
+  display: none;
+}
+
+@media only screen and (min-width: 600px) {
+  .header .hidden-mobile {
+    display: initial;
   }
-  
-  .calendarHeader {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  @media (min-width: 768px) {
-    .calendarHeader {
-      font-size: 1.5rem;
-    }
-  }
-  
-  .calendarDays {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .calendarDay {
-    width: 30%;
-    text-align: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .calendarDay:hover {
-    background-color: rgba(0, 136, 148, 1);
-    color: white;
-  }
-  
-  .selectedDay {
-    background-color: rgba(0, 136, 148, 1);
-    color: white;
-  }
-  
-  .disabledDay {
-    cursor: not-allowed;
-    color: #b4b4b4;
-  }
-  
-  @media (min-width: 768px) {
-    .calendarDay {
-      width: 20%;
-    }
-  }
-  
+}
+
+/* Celdas del calendario */
+
+.body {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+}
+
+.cell {
+  flex-basis: 14.28%;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 10px;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+/* Días seleccionados */
+
+.cell.selected {
+  background-color: rgba(0, 136, 148, 1);
+  color: #fff;
+}
+
+/* Días de fiesta */
+
+.cell.holiday {
+  background-color: rgba(242, 201, 76, 1);
+  font-weight: bold;
+}
+
+/* Botón de solicitar vacaciones */
+
+.vacation-btn {
+  display: block;
+  margin: 1rem auto;
+  background-color: rgba(0, 136, 148, 1);
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Footer */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  background-color: rgba(240, 240, 240, 1);
+  color: rgba(0, 136, 148, 1);
+  font-weight: bold;
+}
+
+.footer div:first-child {
+  text-transform: capitalize;
+}
