@@ -5,7 +5,7 @@ function Documents() {
     const [repo, setRepo] = useState([]);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/apidocuments/list')
+        fetch('http://127.0.0.1:8000/apidocuments/create')
         .then(response => response.json())
     
         .then(repo => 
