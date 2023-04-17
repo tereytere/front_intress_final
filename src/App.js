@@ -5,7 +5,7 @@ import Signin from './components/signin/Signin';
 function App() {
   return (
     <div className="App">
-      <Signin/>
+      <Signin />
       <Holidays/>
     </div>
   );

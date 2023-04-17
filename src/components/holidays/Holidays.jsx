@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { format, getDaysInMonth, addMonths, subMonths } from "date-fns";
-import "./holidays.css";
+import './holidays.css';
 
 function Holidays() {
   const [repo, setRepo] = useState([]);
@@ -50,14 +50,10 @@ function Holidays() {
 
   return (
     <div className="calendar">
+      <div className="month">
+            {format(today, "dd MMMM yyyy")}
+        </div>
       <div className="header">
-        <div className="cell hidden-mobile">Lunes</div>
-        <div className="cell hidden-mobile">Martes</div>
-        <div className="cell hidden-mobile">Miércoles</div>
-        <div className="cell hidden-mobile">Jueves</div>
-        <div className="cell hidden-mobile">Viernes</div>
-        <div className="cell hidden-mobile">Sábado</div>
-        <div className="cell hidden-mobile">Domingo</div>
         <div className="cell visible-mobile">L</div>
         <div className="cell visible-mobile">M</div>
         <div className="cell visible-mobile">X</div>
@@ -97,15 +93,16 @@ function Holidays() {
         </div>
     
       <div className="footer">
-        <div>
-          {format(today, "MMMM yyyy")}
-        </div>
-        <button
-          className="vacation-btn"
-          onClick={() => alert(`Días seleccionados: ${selectedDays}`)}
-        >
-          Solicitar vacaciones
-        </button>
+      <div id="resultado"></div>
+      <button
+        className="vacation-btn"
+        onClick={() => {
+          const resultado = `Días seleccionados: ${selectedDays}`;
+          document.getElementById('resultado').innerHTML = resultado;
+        }}
+      >
+        Solicitar vacaciones
+      </button>
       </div>
     </div>
   );

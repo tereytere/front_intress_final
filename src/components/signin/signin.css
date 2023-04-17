@@ -1,71 +1,60 @@
-/* Calendario */
-.calendar {
-  background-color: rgba(217, 217, 217, 1);
+
+.signin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  margin: 0 auto;
+  background-color: rgba(217, 217, 217, 1);
+}
+
+.signin-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.signin-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%;
   max-width: 600px;
 }
 
-/* Encabezado */
-.header {
-  display: none;
+.signin-label {
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
-@media only screen and (min-width: 600px) {
-  .header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: rgba(0, 136, 148, 1);
-    color: #fff;
-    font-weight: bold;
-  }
-  .header .cell {
-    width: 14.28%;
-    text-align: center;
-  }
-  .header .hidden-mobile {
-    display: none;
-  }
-}
-
-/* Celdas del calendario */
-.body {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0.5rem;
-}
-
-.cell {
-  flex-basis: calc(100% / 7);
-  text-align: center;
-  margin-bottom: 0.5rem;
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 0.5rem;
-}
-
-/* Días seleccionados */
-.cell.selected {
+.signin-button {
   background-color: rgba(0, 136, 148, 1);
   color: #fff;
-}
-
-/* Días de fiesta */
-.cell.holiday {
-  background-color: rgba(242, 201, 76, 1);
-  font-weight: bold;
-}
-
-/* Botón de solicitar vacaciones */
-button {
-  display: block;
-  margin: 1rem auto;
-  background-color: rgba(0, 136, 148, 1);
+  padding: 10px;
   border: none;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.signin-time-container {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.signin-input {
+  background-color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .signin-container {
+    max-width: 800px;
+  }
 }
