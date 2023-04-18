@@ -11,6 +11,8 @@ function App() {
       <NewUser />
       <NewWorkshop />
 
+      <Signin />
+      <Holidays/>
     </div>
   );
 }
