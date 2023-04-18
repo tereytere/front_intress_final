@@ -1,14 +1,12 @@
 import './App.css';
-import Holidays from './components/holidays/Holidays';
-import Signin from './components/signin/Signin';
+import Vacation from './components/vacations/Vacation';
 
 function App() {
-  return (
-    <div className="App">
-      <Signin/>
-      <Holidays/>
-    </div>
-  );
+return (
+<div className="App">
+<Vacation />
+</div>
+);
 }
 
 export default App;

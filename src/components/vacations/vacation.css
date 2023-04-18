@@ -1,0 +1,47 @@
+.container-table .table table {
+    margin-top: 10%;
+    border-collapse: collapse;
+    width: 324px;
+    background-color: #D9D9D9;
+    border-radius: 15px;
+    margin-left: 35px;
+    margin-top: 80%;
+}
+
+.container-table .table table tr .number {
+    padding: 45px;
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    text-align: center;
+    height: auto;
+}
+
+
+
+
+
+.container-table .table table tfoot tr td {
+    padding: 55px;
+    font-size: 1.5em;
+}
+
+@media screen and (max-width: 480px) {
+  .container-table .table table {
+
+    width: 90%;
+    height: auto;
+    border-radius: 15px;
+    margin-left: 15px;
+
+  }
+  .container-table .table table tbody tr .number {
+    padding: 15px;
+    font-size: 1em;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  .container-table .table table tfoot tr td {
+    padding: 15px;
+    font-size: 1em;
+  }
+}
