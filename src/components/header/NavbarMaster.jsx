@@ -1,4 +1,5 @@
-import '.././../styles/css/main.css';
+
+import '../header/header.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { useEffect } from 'react';

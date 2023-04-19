@@ -6,11 +6,12 @@
   margin: 20px;
   padding: 20px;
   border-radius: 10px;
-  background-color: rgba(217, 217, 217, 1);
+  background-color: #ccc;
 }
 .signin-title {
   font-size: 2rem;
   margin-bottom: 20px;
+  font-size: arial,helvetica,sans-serif;
 }
 
 .signin-item {

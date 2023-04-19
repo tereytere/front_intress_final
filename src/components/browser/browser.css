@@ -1,0 +1,56 @@
+.browser-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.browser-box .form1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.browser-box .form1 .input1 {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-size: 16px;
+    width: 200px;
+}
+
+.browser-box .form1 .input1 .imgLupa {
+    position: absolute;
+    width: 27.95px;
+    height: 29.01px;
+    left: 294.4px;
+    top: 112.41px;
+    transform: rotate(90.81deg);
+}
+
+.browser-box .form1 .input1:focus {
+    outline: none;
+    border: 1px solid #008894;
+}
+
+.browser-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+.browser-box ul li {
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #f7f7f7;
+}
+
+.browser-box p {
+    font-size: 16px;
+    font-style: italic;
+}
