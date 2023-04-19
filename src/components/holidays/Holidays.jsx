@@ -3,10 +3,12 @@ import { format, getDaysInMonth, addMonths, subMonths } from "date-fns";
 import './holidays.css';
 
 function Holidays() {
+  const today = new Date();
   const [repo, setRepo] = useState([]);
   const [selectedDays, setSelectedDays] = useState([]);
+  const [selectedMonth, setSelectedMonth] = useState(today.getMonth());
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const today = new Date();
+  
 
   const daysInMonth = Array.from(
     { length: getDaysInMonth(currentMonth) },
@@ -22,6 +24,10 @@ function Holidays() {
     ...daysInMonth,
     ...Array(42 - (daysInMonth.length + startIndex - 1)).fill(null),
   ];
+  const handleMonthChange = (event) => {
+    setSelectedMonth(parseInt(event.target.value));
+  };
+
 
   useEffect(() => {
     fetch("http://127.0.0.1:8000/holidays/create")
@@ -48,10 +54,39 @@ function Holidays() {
     setCurrentMonth((prevMonth) => addMonths(prevMonth, 1));
   }
 
+  const monthNames = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+
+
   return (
     <div className="calendar">
       <div className="month">
             {format(today, "dd MMMM yyyy")}
+      </div>
+      <button className="prevMonthBtn">&lt;</button>
+        <div className="selectWrapper">
+          <select
+            className="monthSelect"
+            value={selectedMonth}
+            onChange={handleMonthChange}>
+            {monthNames.map((month, index) => (
+              <option key={index} value={index}>
+                {month}
+              </option>
+            ))}
+          </select>
         </div>
       <div className="header">
         <div className="cell visible-mobile">L</div>

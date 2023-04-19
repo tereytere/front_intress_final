@@ -18,25 +18,27 @@ function NewUser() {
     return (
         <div className='container-new'>
             <h2>Nuevo Usuario</h2>
-            <form action="" className="contact-box" data-aos="fade-up" data-aos-duration="1500">
-          <div className="form-control">
-            <label className="label-form" for="name">Nombre:</label>
-            <input className="control" type="text" name="Nombre"/>
-          </div>
-          <div className="form-control">
-            <label className="label-form" for="mail">Apellido:</label>
-            <input className="control" type="email" name="Correo"/>
-          </div>
-          <div className="form-control">
-            <label className="label-form" for="msg">Rol:</label>
-            <input className="control" type="text" name="Rol"/>
-          </div>
-          
-        </form>
-
+            
+                
+                    <form action="" className="contact-box" data-aos="fade-up" data-aos-duration="1500">
+                    <div className="form-control">
+                      <label className="label-form" for="name">Nombre:</label>
+                      <input className="control" type="text" name="name" value=''/>
+                    </div>
+                    <div className="form-control">
+                      <label className="label-form" for="mail">Apellido:</label>
+                      <input className="control" type="email" name="Correo"/>
+                    </div>
+                    <div className="form-control">
+                      <label className="label-form" for="msg">Rol:</label>
+                      <input className="control" type="text" name="Rol"/>
+                    </div>
+                    
+                  </form>
+                  
+            
         <button className="buttonc btns">Crear</button>
                 
-            
         </div>
     )
 }

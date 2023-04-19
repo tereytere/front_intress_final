@@ -8,10 +8,6 @@ import NewWorkshop from './components/create/NewWorkshop';
 function App() {
   return (
     <div className="App">
-      <NewUser />
-      <NewWorkshop />
-
-      <Signin />
       <Holidays/>
     </div>
   );
