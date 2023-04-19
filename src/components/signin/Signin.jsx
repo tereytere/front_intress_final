@@ -56,7 +56,7 @@ function Signin() {
     setIsRunning(false);
  
     // Send the data to the API
-    const response = await fetch("http://127.0.0.1:8000/signin/create", {
+    const response = await fetch("http://127.0.0.1:8000/apisignin/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ timestart, timestop, timeRestart, timefinish }),
@@ -108,7 +108,7 @@ function Signin() {
   useEffect(() => {
     // Get the hours data from the API
     const fetchHoursData = async () => {
-      const response = await fetch("http://127.0.0.1:8000/signin");
+      const response = await fetch("http://127.0.0.1:8000/apisignin/list");
       const data = await response.json();
       setHoursData(data);
     };
