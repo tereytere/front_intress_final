@@ -1,0 +1,128 @@
+div{
+    margin: 0 auto;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.desktop{
+    width: 100%;
+}
+.logo{
+    width: 116px;
+    margin-top: -90px;
+    margin-bottom: 50px;
+    
+}
+.box-fichaje{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 500px;
+     
+}
+form{
+    width: 700px;
+    margin-bottom: 90px;
+    margin-right: 150px;
+    height: 80vh;
+}
+.inputContainer{
+    position: relative;
+    height: 45px;
+    width: 90%;
+    margin-bottom: 17px;
+}
+.boxes{
+    position: absolute;
+    top: 0px;
+    left: -150px;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #DADCE0;
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 0 20px;
+    outline: none;
+    background: none;
+    z-index: 1;
+}
+.boxes:focus + .subtitle {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1C1B1F;
+  }
+.boxes:focus {
+    border: 2px solid #1C1B1F;
+  }
+.boxes:not(:placeholder-shown)+ .subtitle {
+    top: -7px;
+    left: -140px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .subtitle{
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    padding: 0 4px;
+    background-color: white;
+    color: #DADCE0;
+    font-size: 16px;
+    transition: 0.5s;
+    z-index: 0;
+}
+.btn{
+    display: block;
+    margin-left: auto;
+    padding: 15px 30px;
+    border: none;
+    background-color: #008894;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 30px;
+    margin-right: 450px;
+}
+.btn:hover {
+    background-color: #06c2d3;
+    transform: translateY(-2px);
+}
+.personita{
+    position: absolute;
+    margin-top: 250px;
+    margin-left: 350px;
+    width: 470px;
+}
+@media screen and (max-width:767px) {
+    .logo{
+        width: 60px;
+    }
+    .box-fichaje{
+        margin-left: 10px;
+    }
+    form{
+        width: 200px;
+        margin-right:0px;
+        margin-left: 260px;
+        margin-top: 30px;
+    }
+    .btn{
+        margin-top: 80px;
+        margin-left: -90px;
+    }
+    .personita{
+        width: 300px;
+        margin-left: 70px;
+        margin-right: 0px;
+        margin-top: 330px;
+    }
+    picture{
+        width: 100px;
+    }
+}

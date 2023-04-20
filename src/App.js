@@ -1,14 +1,15 @@
 import './App.css';
-import Holidays from './components/holidays/Holidays';
-import Signin from './components/signin/Signin';
+import Doc from './components/documents/Doc';
+import SelecUsuario from './components/selecusuario/SelecUsuario';
 
 function App() {
-  return (
-    <div className="App">
-      <Signin/>
-      <Holidays/>
-    </div>
-  );
+    return (
+        <div className="App">
+
+            <Doc/>
+            <SelecUsuario />
+        </div>
+    );
 }
 
 export default App;
