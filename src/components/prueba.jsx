@@ -1,4 +1,5 @@
 // import React from 'react'
+// import axios from '../api/axios';
 
 // function Prueba() {
 //     const token = localStorage.getItem("loggedAppUser");
@@ -27,7 +28,7 @@
 //     }
 //   return (
 //     <div>
-//         <h1>ESTAS EN LA USERLIST</h1>
+//         <h1>Bienvenido</h1>
 //     </div>
 //   )
 // }
