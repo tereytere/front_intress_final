@@ -1,10 +1,10 @@
 import './App.css';
-import SelecUsuario from './components/selecusuario/SelecUsuario';
+import SelecAdmin from './components/selecusuario/selecAdmin/SelecAdmin';
 function App() {
 return (
 <div className="App">
 
-<SelecUsuario />
+<SelecAdmin />
 </div>
 );
 }
