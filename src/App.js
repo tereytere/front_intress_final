@@ -1,7 +1,12 @@
-import Doc from "./components/documents/Doc";
-
+import './App.css';
+import SelecUsuario from './components/selecusuario/SelecUsuario';
 function App() {
-  <Doc/>
+return (
+<div className="App">
+
+<SelecUsuario />
+</div>
+);
 }
 
 export default App;
