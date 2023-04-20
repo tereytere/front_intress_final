@@ -1,0 +1,37 @@
+.talleres {
+    width: 250px;
+    height: 30px;
+    font-size: 14px;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    color: #333;
+}
+
+.talleres option {
+    font-size: 18px;
+    padding: 5px;
+    background-color: #fff;
+    color: #333;
+}
+
+
+@media screen and (max-width: 480px) {
+    .talleres {
+        width: 100%;
+        height: 40px;
+        font-size: 20px;
+        padding: 10px;
+        text-align: center;
+        bottom: 0;
+        right: 0;
+    }
+    
+    .talleres option {
+        font-size: 18px;
+        padding: 8px;
+    }
+    
+}
