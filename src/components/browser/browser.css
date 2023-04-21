@@ -1,0 +1,45 @@
+.form-control {
+    display:flex;
+    border-radius: 15px;
+    border:0cap;
+    border-color:#008996 ;
+    padding: 10px;
+    width: 15%;
+    margin-top: 3%;
+    margin-left: 40%;
+    background-size: 20px;
+    height: 10%;
+}
+.lupa{
+    position: absolute;
+    margin-top:-2%;
+    margin-left: 4%;
+}
+
+table{ 
+    visibility: hidden;
+    display:none;
+}
+
+@media screen and (max-width: 767px) {
+    .form-control{
+        width: 25%;
+        height: 5%;
+        margin-left:33%;
+        top:25%;
+        }
+    .lupa{
+    margin-top:-8%;
+    width: auto;
+    }
+    @media screen and (max-width: 768px) {
+        input::placeholder {
+        color: transparent;
+        }
+    }
+    .resultados{
+        color:transparent;
+    }
+    
+    }
+
