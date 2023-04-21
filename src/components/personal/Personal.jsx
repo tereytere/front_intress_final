@@ -30,9 +30,10 @@ function Personal() {
                         <>
                         <p className='card-title'>{int.surname}</p>
                         <p className='card-title'>{int.rol}</p>
+                        <img className='card-img' src={int.image} alt={int.name} />
                         </>
                         )}
-                        <img className='card-img' src={int.image} alt={int.name} /> 
+                        
                     </div>
                 )
             })}

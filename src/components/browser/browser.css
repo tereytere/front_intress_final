@@ -1,56 +1,45 @@
-.browser-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.browser-box .form1 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.browser-box .form1 .input1 {
-    padding: 5px;
-    border: 1px solid #ccc;
+.form-control {
+    display:flex;
     border-radius: 15px;
-    font-size: 16px;
-    width: 200px;
+    border:0cap;
+    border-color:#008996 ;
+    padding: 10px;
+    width: 15%;
+    margin-top: 3%;
+    margin-left: 40%;
+    background-size: 20px;
+    height: 10%;
 }
-
-.browser-box .form1 .input1 .imgLupa {
+.lupa{
     position: absolute;
-    width: 27.95px;
-    height: 29.01px;
-    left: 294.4px;
-    top: 112.41px;
-    transform: rotate(90.81deg);
+    margin-top:-2%;
+    margin-left: 4%;
 }
 
-.browser-box .form1 .input1:focus {
-    outline: none;
-    border: 1px solid #008894;
+table{ 
+    visibility: hidden;
+    display:none;
 }
 
-.browser-box ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 16px;
-}
+@media screen and (max-width: 767px) {
+    .form-control{
+        width: 25%;
+        height: 5%;
+        margin-left:33%;
+        top:25%;
+        }
+    .lupa{
+    margin-top:-8%;
+    width: auto;
+    }
+    @media screen and (max-width: 768px) {
+        input::placeholder {
+        color: transparent;
+        }
+    }
+    .resultados{
+        color:transparent;
+    }
+    
+    }
 
-.browser-box ul li {
-    margin-top: 10px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    background-color: #f7f7f7;
-}
-
-.browser-box p {
-    font-size: 16px;
-    font-style: italic;
-}
