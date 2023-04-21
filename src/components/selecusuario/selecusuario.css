@@ -10,7 +10,7 @@
     color: #333;
 }
 
-.talleres option {
+option {
     font-size: 18px;
     padding: 5px;
     background-color: #fff;
@@ -29,7 +29,7 @@
         right: 0;
     }
     
-    .talleres option {
+    option {
         font-size: 18px;
         padding: 8px;
     }
