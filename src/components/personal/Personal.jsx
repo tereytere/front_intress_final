@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 import '../personal/personal.css';
 import React, { useEffect, useState } from "react";
 
-=======
-import React, { useEffect, useState } from "react";
->>>>>>> lau-dev
 function Personal() {
     const [repo, setRepo] = useState([]);
     const [showDetails, setShowDetails] = useState(true);

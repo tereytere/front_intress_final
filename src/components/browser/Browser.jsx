@@ -38,20 +38,14 @@ if(!search){
  return (
     <div>
       <div>
-        <input className="form-control" value={search} onChange={searcher} type='text' placeholder='Buscar usuari@' className='form-control'/>
+        <input className="form-control" value={search} onChange={searcher} type='text' placeholder='Buscar usuari@' />
        <img className="lupa" src="./images/lupa.png" alt="lupa" />
         </div>
         <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>User Name</th>
-                </tr>
-            </thead>
             <tbody>
                 { results.map((user) =>(
                 <tr key={user.id}> 
-                    <td>{user.name}</td>
+                    <td><a className="linkuser"href='/user'>{user.name}</a></td>
                     <td>{user.surname}</td>
                 </tr>
                     
