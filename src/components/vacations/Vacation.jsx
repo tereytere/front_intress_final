@@ -44,3 +44,5 @@ function Vacation() {
 }
 
 export default Vacation;
+
+export default Vacation;

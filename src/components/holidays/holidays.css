@@ -1,12 +1,12 @@
 /* Calendario */
 
 .calendar {
-  background-color: rgba(217, 217, 217, 1);
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: #D9D9D9;
+  border-radius: 35px;
   overflow: hidden;
   margin: 0 auto;
-  max-width: 600px;
+  width: 400px;
+  margin-bottom: 30px;
 }
 
 /* Encabezado */
@@ -15,25 +15,25 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-color: rgba(240, 240, 240, 1);
-  color: rgba(0, 136, 148, 1);
+  background-color: #D9D9D9;
+  color: black;
   font-weight: bold;
-  font-size: 1.2rem;
-  padding: 1rem 0;
+  font-size: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  margin-top: 100px;
+  
 }
-
-.header .cell {
-  flex-basis: 14.28%;
-  text-align: center;
-  margin-bottom: 0.5rem;
-}
-
-.header .hidden-mobile {
-  display: none;
+.month{
+  position: absolute;
+  margin-left: 30px;
+  margin-top: 25px;
+  font-size: 32px;
 }
 
 @media only screen and (min-width: 600px) {
-  .header .hidden-mobile {
+  .hidden-mobile {
     display: initial;
   }
 }
@@ -43,29 +43,32 @@
 .body {
   display: flex;
   flex-wrap: wrap;
-  padding: 0.5rem;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .cell {
+  width: 10px;
+  height: 50px;
+  margin-bottom: 10px;
+  padding: 0px;
+  cursor: pointer;
   flex-basis: 14.28%;
   text-align: center;
-  margin-bottom: 0.5rem;
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 10px;
-  padding: 0.5rem;
-  cursor: pointer;
+  vertical-align: middle; 
 }
 
 /* Días seleccionados */
 
-.cell.selected {
+.selected {
   background-color: rgba(0, 136, 148, 1);
+  border-radius: 50%;
   color: #fff;
 }
 
 /* Días de fiesta */
 
-.cell.holiday {
+.holiday {
   background-color: rgba(242, 201, 76, 1);
   font-weight: bold;
 }
@@ -74,11 +77,11 @@
 
 .vacation-btn {
   display: block;
-  margin: 1rem auto;
-  background-color: rgba(0, 136, 148, 1);
+  background-color: transparent;
+  margin-right: 40px;
+  padding-bottom: 30px;
   border: none;
-  color: #fff;
-  padding: 0.5rem 1rem;
+  color: rgba(0, 136, 148, 1);
   border-radius: 10px;
   cursor: pointer;
 }
@@ -89,13 +92,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
   font-size: 1.2rem;
-  background-color: rgba(240, 240, 240, 1);
-  color: rgba(0, 136, 148, 1);
+  background-color: #D9D9D9;
+  color: black;
   font-weight: bold;
 }
 
 .footer div:first-child {
   text-transform: capitalize;
 }
+
+#resultado{
+  width: 150px;
+  font-size: 15px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { format, getDaysInMonth, addMonths, subMonths } from "date-fns";
-import "./holidays.css";
+import './holidays.css';
 
 function Holidays() {
+  const today = new Date();
   const [repo, setRepo] = useState([]);
   const [selectedDays, setSelectedDays] = useState([]);
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const today = new Date();
+  
 
   const daysInMonth = Array.from(
     { length: getDaysInMonth(currentMonth) },
@@ -22,6 +23,7 @@ function Holidays() {
     ...daysInMonth,
     ...Array(42 - (daysInMonth.length + startIndex - 1)).fill(null),
   ];
+
 
   useEffect(() => {
     fetch("http://127.0.0.1:8000/holidays/create")
@@ -48,16 +50,13 @@ function Holidays() {
     setCurrentMonth((prevMonth) => addMonths(prevMonth, 1));
   }
 
+
   return (
     <div className="calendar">
+      <div className="month">
+            {format(today, "dd MMMM yyyy")}
+      </div>
       <div className="header">
-        <div className="cell hidden-mobile">Lunes</div>
-        <div className="cell hidden-mobile">Martes</div>
-        <div className="cell hidden-mobile">Miércoles</div>
-        <div className="cell hidden-mobile">Jueves</div>
-        <div className="cell hidden-mobile">Viernes</div>
-        <div className="cell hidden-mobile">Sábado</div>
-        <div className="cell hidden-mobile">Domingo</div>
         <div className="cell visible-mobile">L</div>
         <div className="cell visible-mobile">M</div>
         <div className="cell visible-mobile">X</div>
@@ -97,15 +96,16 @@ function Holidays() {
         </div>
     
       <div className="footer">
-        <div>
-          {format(today, "MMMM yyyy")}
-        </div>
-        <button
-          className="vacation-btn"
-          onClick={() => alert(`Días seleccionados: ${selectedDays}`)}
-        >
-          Solicitar vacaciones
-        </button>
+      <div id="resultado"></div>
+      <button
+        className="vacation-btn"
+        onClick={() => {
+          const resultado = `Días seleccionados: ${selectedDays}`;
+          document.getElementById('resultado').innerHTML = resultado;
+        }}
+      >
+        Solicitar vacaciones
+      </button>
       </div>
     </div>
   );
