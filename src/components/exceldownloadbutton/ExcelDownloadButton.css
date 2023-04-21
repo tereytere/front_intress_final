@@ -1,25 +1,20 @@
 button {
-    background-color: #008894;
+    display: block;
+    margin-left: 780px;
+    padding: 15px 30px;
     border: none;
-    border-radius: 22px;
+    background-color: #008894;
     color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 52px;
-    margin: 4px 2px;
+    border-radius: 6px;
     cursor: pointer;
-    width: 544px;
-    height: 242px;
-    position: absolute;
-    margin-top: 384px;
-
+    font-size: 16px;
+    margin-top: 30px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 767px) {
     .button {
-    font-size: 30px;
+    font-size: 22px;
     padding: 20px 40px;
+    margin: 0;
     }
 }
