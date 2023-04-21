@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import './personal.css'
+
 function Personal() {
     const [repo, setRepo] = useState([]);
     const [showDetails, setShowDetails] = useState(true);
