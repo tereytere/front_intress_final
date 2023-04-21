@@ -31,8 +31,8 @@ function SelecUsuario() {
 
             {selectedOption && cardContent && (
                 <div className="card">
-                    <h2>{selectedOption}</h2>
-                    <p>{cardContent}</p>
+                    <h2 className="selectTitle">{selectedOption}</h2>
+                    <p className="cardcontent">{cardContent}</p>
                 </div>
             )}
         </div>
