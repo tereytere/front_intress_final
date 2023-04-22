@@ -5,6 +5,9 @@ import SelecAdmin from '../../components/selecusuario/selecAdmin/SelecAdmin'
 import NewUser from '../../components/create/NewUser'
 import NewTask from '../../components/create/NewTask'
 import NewWorkshop from '../../components/create/NewWorkshop'
+import DownloadDocuments from '../../components/downloads/DownloadDocuments'
+import DownloadHolidays from '../../components/downloads/DownloadHolidays'
+import DownloadSignin from '../../components/downloads/DownloadSignin'
 
 function Admin() {
   return (
@@ -15,6 +18,10 @@ function Admin() {
       <NewUser />
       <NewTask />
       <NewWorkshop />
+      <DownloadSignin />
+      <DownloadDocuments />
+      <DownloadHolidays />
+      
     </div>
   )
 }
