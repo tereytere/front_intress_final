@@ -1,115 +1,103 @@
-import React, { useEffect, useState } from "react";
-import { format, getDaysInMonth, addMonths, subMonths } from "date-fns";
+import React, { useState } from 'react';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 import './holidays.css';
 
 function Holidays() {
-  const today = new Date();
-  const [repo, setRepo] = useState([]);
-  const [selectedDays, setSelectedDays] = useState([]);
-  const [currentMonth, setCurrentMonth] = useState(new Date());
-  
+  const [selectedDates, setSelectedDates] = useState([]);
+  const [remainingDays, setRemainingDays] = useState(30);
+  const [permanentDates, setPermanentDates] = useState([]);
 
-  const daysInMonth = Array.from(
-    { length: getDaysInMonth(currentMonth) },
-    (_, i) => i + 1
-  );
-  const startIndex = new Date(
-    currentMonth.getFullYear(),
-    currentMonth.getMonth(),
-    1
-  ).getDay();
-  const daysWithOffset = [
-    ...Array(startIndex - 1 < 0 ? 6 : startIndex - 1).fill(null),
-    ...daysInMonth,
-    ...Array(42 - (daysInMonth.length + startIndex - 1)).fill(null),
-  ];
+  const isSelectedDate = (date) => {
+    return (
+      selectedDates.some((d) => isSameDay(d, date)) ||
+      permanentDates.some((d) => isSameDay(d, date))
+    );
+  };
 
-
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/holidays/create")
-      .then((response) => response.json())
-      .then((data) => setRepo(data))
-      .catch((error) => console.error(error));
-  }, []);
-
-  function handleDayClick(day) {
-    setSelectedDays((prevSelectedDays) => {
-      if (prevSelectedDays.includes(day)) {
-        return prevSelectedDays.filter((d) => d !== day);
+  const handleDateSelect = (date) => {
+    const newDate = new Date(date);
+    if (!isSelectedDate(newDate)) { 
+      if (!selectedDates.some((d) => isSameDay(d, newDate))) {
+        setSelectedDates((prevDates) => [...prevDates, newDate]);
       } else {
-        return [...prevSelectedDays, day];
+        setSelectedDates((prevDates) =>
+          prevDates.filter((d) => !isSameDay(d, newDate))
+        );
       }
-    });
-  }
+    }
+  };
 
-  function handlePrevMonth() {
-    setCurrentMonth((prevMonth) => subMonths(prevMonth, 1));
-  }
+  const handleVacationSubmit = () => {
+  
+    const daysSelected = selectedDates.length;
+    setPermanentDates((prevDates) => [...prevDates, ...selectedDates]);
+    setRemainingDays((prevDays) => prevDays - daysSelected);
 
-  function handleNextMonth() {
-    setCurrentMonth((prevMonth) => addMonths(prevMonth, 1));
-  }
+    // Aquí es donde se enviarán los datos a través de nuestra API o Backend
+    alert('¡Vacaciones enviadas con éxito!');
+    setSelectedDates([]);
+  };
 
+  const calculateDaysSelected = () => {
+    return selectedDates.length;
+  };
+
+  const formatDates = (dates) => {
+    return dates.map((date) => date.toLocaleDateString()).join(', ');
+  };
+
+  const showSelectedDays = () => {
+    return formatDates(selectedDates);
+  };
+
+  const isSameDay = (date1, date2) =>
+    date1.getDate() === date2.getDate() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getFullYear() === date2.getFullYear();
 
   return (
-    <div className="calendar">
-      <div className="month">
-            {format(today, "dd MMMM yyyy")}
-      </div>
-      <div className="header">
-        <div className="cell visible-mobile">L</div>
-        <div className="cell visible-mobile">M</div>
-        <div className="cell visible-mobile">X</div>
-        <div className="cell visible-mobile">J</div>
-        <div className="cell visible-mobile">V</div>
-        <div className="cell visible-mobile">S</div>
-        <div className="cell visible-mobile">D</div>
-      </div>
-      <div className="body">
-        {daysWithOffset.map((day, index) => {
-          if (day === null) {
-            return <div className="cell" key={index}></div>;
-          } else {
-            const isSelected = selectedDays.includes(day);
-            const date = new Date(
-              currentMonth.getFullYear(),
-              currentMonth.getMonth(),
-              day
-            );
-            const formattedDate = format(date, "yyyy-MM-dd");
-            const isHoliday = repo.some(
-              (holiday) => holiday.date === formattedDate
-            );
-            return (
-              <div
-                className={`cell ${isSelected ? "selected" : ""} ${
-                  isHoliday ? "holiday" : ""
-                }`}
-                key={index}
-                onClick={() => handleDayClick(day)}
-              >
-                {day}
-              </div>
-            );
+    <div className="holidays-container">
+      <div className="holidays-calendar-container">
+        <Calendar
+          value={[...selectedDates, ...permanentDates]}
+          onChange={handleDateSelect}
+          tileClassName={({ date }) =>
+            isSelectedDate(date) ? "selected" : "" 
           }
-        })}
+          minDate={new Date()}
+          calendarType="ISO 8601"
+          showFixedNumberOfWeeks={true}
+          fixedWeeksCount={6}
+        />
+      </div>
+
+      <div className="holidays-info-container">
+        <h2 className="holidays-header">Vacaciones</h2>
+        <p>
+          Selecciona los días que deseas disfrutar de tus vacaciones. Tienes{' '}
+          <span className="holidays-days-remaining">{remainingDays}</span> días
+          de vacaciones disponibles.
+        </p>
+
+        <div className="holidays-selected">
+          <p className="holidays-selected-header">Días seleccionados:</p>
+          <p className="holidays-selected-days">{showSelectedDays()}</p>
+          <p className="holidays-selected-count">
+            Días seleccionados: {calculateDaysSelected()}
+          </p>
         </div>
-    
-      <div className="footer">
-      <div id="resultado"></div>
-      <button
-        className="vacation-btn"
-        onClick={() => {
-          const resultado = `Días seleccionados: ${selectedDays}`;
-          document.getElementById('resultado').innerHTML = resultado;
-        }}
-      >
-        Solicitar vacaciones
-      </button>
+
+        <button
+          className="holidays-submit-button"
+          onClick={handleVacationSubmit}
+          disabled={selectedDates.length === 0}
+        >
+          Solicitar
+        </button>
       </div>
     </div>
   );
 }
 
 export default Holidays;
-

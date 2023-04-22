@@ -44,4 +44,68 @@
     padding: 15px;
     font-size: 1em;
 }
+.signin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(217, 217, 217, 1);
+}
+.signin-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.signin-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.signin-label {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.signin-button {
+    background-color: rgba(0, 136, 148, 1);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.signin-time-container {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.signin-input {
+    background-color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .signin-container {
+    max-width: 800px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .signin-container {
+    max-width: 800px;
+    }
+}
 }
