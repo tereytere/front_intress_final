@@ -1,60 +1,174 @@
-.calendarContainer {
-    background-color: rgba(217, 217, 217, 1);
-    padding: 20px;
-    border-radius: 10px;
-    width: 50%;
+.holidays-container {
+  width: 80%;
+  margin-top: 3em;
+  margin-left: 8%;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  background-color: rgba(217, 217, 217, 1);
+  box-shadow: 10px 7px 5px grey;
+  padding: 25px;
+}
+
+.holidays-calendar-container {
+  width: 80%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+}
+
+.holidays-info-container {
+  width: 80%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.holidays-header {
+  float:inline-end;
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: black;
+  margin-bottom: 0.5em;
+}
+
+.holidays-days-remaining {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.holidays-selected {
+  margin-top: 1em;
+}
+
+.holidays-selected-header {
+  font-size: 1.2em;
+  color: #008894;
+  font-weight: bold;
+}
+
+.holidays-selected-days {
+  font-size: 1em;
+  margin: 0.5em 0;
+}
+
+.holidays-selected-count {
+  font-size: 0.8em;
+  color: #888;
+  margin: 0;
+  margin-top: 0.5em;
+}
+
+.holidays-submit-button {
+  background-color: #008894;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.5em;
+  margin-top: 2em;
+  cursor: pointer;
+  position:relative;
+  bottom: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  /* Estilos para dispositivos de menos de 768px de ancho */
+  .holidays-container {
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-left: 5%;
-    height: auto;
+    width: 70%;
   }
-  
-  .calendarHeader {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
+
+  .holidays-calendar-container {
+    width: 100%;
+    margin-bottom: 2em;
   }
-  
-  @media (min-width: 768px) {
-    .calendarHeader {
-      font-size: 1.5rem;
-    }
+
+  .holidays-info-container {
+    width: 100%;
+    max-width: none;
   }
-  
-  .calendarDays {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+
+  .holidays-selected-days {
+    font-size: 0.8em;
   }
-  
-  .calendarDay {
-    width: 30%;
-    text-align: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    cursor: pointer;
+
+  .holidays-selected-count {
+    font-size: 0.6em;
   }
-  
-  .calendarDay:hover {
-    background-color: rgba(0, 136, 148, 1);
-    color: white;
+
+  .holidays-submit-button {
+    font-size: 1em;
   }
-  
-  .selectedDay {
-    background-color: rgba(0, 136, 148, 1);
-    color: white;
-  }
-  
-  .disabledDay {
-    cursor: not-allowed;
-    color: #b4b4b4;
-  }
-  
-  @media (min-width: 768px) {
-    .calendarDay {
-      width: 20%;
-    }
-  }
-  
+}
+
+/* Estilos para el calendario */
+
+.react-calendar {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  font-size: 1em;
+}
+
+.react-calendar__navigation {
+  margin: 0.5em 0;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #888;
+}
+
+.react-calendar__tile--active {
+  background-color: #008894;
+  color: white;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background-color: #008894;
+  background-color: rgba(166, 0, 50, 1);
+}
+
+.react-calendar__tile--now {
+  background-color: #f0f4f8;
+  color: black;
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background-color: #dbe2e8;
+}
+
+.react-calendar__tile {
+  border: none;
+  padding: 0.7em;
+  margin: 0.3em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  font-size: 0.8em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #008894;
+}
+
+.react-calendar__month-view__days__day {
+  font-size: 0.8em;
+  text-align: center;
+  color: black;
+}

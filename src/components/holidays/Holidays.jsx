@@ -1,89 +1,72 @@
-import React, { useState } from "react";
-import './holidays.css'; 
-
+import React, { useState } from 'react';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import './holidays.css'
 function Holidays() {
-  const today = new Date();
-  const [selectedDate, setSelectedDate] = useState(today.getDate());
-  const [selectedMonth, setSelectedMonth] = useState(today.getMonth());
-  const [selectedYear, setSelectedYear] = useState(today.getFullYear());
-  const [selectedDays, setSelectedDays] = useState({});
+  const [selectedDates, setSelectedDates] = useState([]);
+  const [remainingDays, setRemainingDays] = useState(30);
 
-  const daysInMonth = (month, year) => {
-    return new Date(year, month + 1, 0).getDate();
+  const handleDateSelect = (date) => {
+    const newDate = new Date(date);
+    setSelectedDates((prevDates) => [...prevDates, newDate]);
   };
 
-  const daysArray = () => {
-    const totalDays = daysInMonth(selectedMonth, selectedYear);
-    const daysArr = [];
-    for (let i = 1; i <= totalDays; i++) {
-      daysArr.push(i);
-    }
-    return daysArr;
+  const handleVacationSubmit = () => {
+    // Aquí sumamos los días de vacaciones seleccionados
+    const daysSelected = selectedDates.length;
+    setRemainingDays((prevDays) => prevDays - daysSelected);
+
+    // Aquí es donde se enviarían los datos a través de nuestra API o Backend
+    alert('¡Vacaciones enviadas con éxito!');
+    setSelectedDates([]);
   };
 
-  const handleDayClick = (day) => {
-    setSelectedDate(day);
+  // Función para calcular la cantidad de días seleccionados
+  const calculateDaysSelected = () => {
+    return selectedDates.length;
   };
 
-  const handleMonthChange = (event) => {
-    setSelectedMonth(parseInt(event.target.value));
+  // Función para mostrar los días seleccionados
+  const showSelectedDays = () => {
+    return selectedDates.map((date) => date.toLocaleDateString()).join(', ');
   };
-
-  const handleYearChange = (event) => {
-    setSelectedYear(parseInt(event.target.value));
-  };
-
-  const monthNames = [
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre",
-  ];
 
   return (
-    <div className="calendarContainer">
-      <div className="calendarHeader">
-        <div className="selectWrapper">
-          <select className="select-holidays" value={selectedMonth} onChange={handleMonthChange}>
-            {monthNames.map((month, index) => (
-              <option key={index} value={index}>
-                {month}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="selectWrapper">
-          <select className="select-holidays" value={selectedYear} onChange={handleYearChange}>
-            <option value={selectedYear - 1}>{selectedYear - 1}</option>
-            <option value={selectedYear}>{selectedYear}</option>
-            <option value={selectedYear + 1}>{selectedYear + 1}</option>
-          </select>
-        </div>
+    <div className="holidays-container">
+      
+      <div className="holidays-calendar-container">
+        
+        <Calendar
+          onChange={handleDateSelect}
+          value={selectedDates}
+          minDate={new Date()}
+          calendarType="US"
+        />
       </div>
-      <div className="calendarDays">
-        {daysArray().map((day, index) => (
-          <div
-            key={index}
-            className={`$"calendarDay" ${
-              selectedDate [day] ? "selectedDay" : ""
-            }`}
-            onClick={() => {
-              let newSelectedDays = {...selectedDays};
-              newSelectedDays[day] = !newSelectedDays[day];
-              setSelectedDays(newSelectedDays);
-            }}
-          >
-            {day}
-          </div>
-        ))}
+
+      <div className="holidays-info-container">
+      <h2 className="holidays-header">Vacaciones</h2>
+        <p>
+          Selecciona los días que deseas disfrutar de tus vacaciones. Tienes{' '}
+          <span className="holidays-days-remaining">{remainingDays}</span> días
+          de vacaciones disponibles.
+        </p>
+
+        <div className="holidays-selected">
+          <p className="holidays-selected-header">Días seleccionados:</p>
+          <p className="holidays-selected-days">{showSelectedDays()}</p>
+          <p className="holidays-selected-count">
+            Días seleccionados: {calculateDaysSelected()}
+          </p>
+        </div>
+    
+            <button
+              className="holidays-submit-button"
+              onClick={handleVacationSubmit}
+              disabled={selectedDates.length === 0}
+            >
+            Solicitar
+            </button>
       </div>
     </div>
   );
