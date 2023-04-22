@@ -99,8 +99,7 @@ function Login() {
     <>
         {success ? (
                 <section className='success'>
-                    <h2>¡Has iniciado sesión!</h2>
-                    <a href='#' className='btn-login'>Ve al inicio</a>
+                    <h2>Loading ...</h2>
                 </section> 
             ) : (
                 <section className='principalPage'>
