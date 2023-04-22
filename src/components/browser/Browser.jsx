@@ -39,7 +39,7 @@ if(!search){
     <div>
       <div>
         <input className="form-control" value={search} onChange={searcher} type='text' placeholder='Buscar usuari@' />
-       <img className="lupa" src="./images/lupa.png" alt="lupa" />
+        <img className="lupa" src="./images/lupa.png" alt="lupa" />
         </div>
         <table>
             <tbody>
@@ -48,7 +48,6 @@ if(!search){
                     <td><a className="linkuser"href='/user'>{user.name}</a></td>
                     <td>{user.surname}</td>
                 </tr>
-                    
               ))}
             </tbody>
         
