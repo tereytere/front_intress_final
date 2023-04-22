@@ -1,131 +1,202 @@
 import React, { useState, useEffect } from 'react';
 import './signin.css';
 
-function Login() {
+function Signin() {
   const [time, setTime] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
-  const [reason, setReason] = useState('');
   const [isPaused, setIsPaused] = useState(false);
-  const [isStarted, setIsStarted] = useState(false);
-  const [isFinished, setIsFinished] = useState(false);
+  const [clock, setClock] = useState(new Date().toLocaleTimeString());
+  const [startDateTime, setStartDateTime] = useState(null);
+  const [pauseDateTime, setPauseDateTime] = useState(null);
+  const [resumeDateTime, setResumeDateTime] = useState(null);
+  const [finishDateTime, setFinishDateTime] = useState(null);
+  const [started, setStarted] = useState(false);
+  const [displaySummary, setDisplaySummary] = useState(false);
+  const [showRestartButton, setShowRestartButton] = useState(false);
 
   useEffect(() => {
-    if (isStarted && !isPaused) {
+    if (started && !isPaused) {
       const newIntervalId = setInterval(() => {
-        setTime((prevTime) => prevTime + 1);
+        setTime((prevTime) => {
+          return prevTime + 1;
+        });
       }, 1000);
       setIntervalId(newIntervalId);
-    } else if (isPaused) {
-      clearInterval(intervalId);
-    }
 
-    return () => clearInterval(intervalId);
-  }, [isStarted, isPaused, intervalId]);
+      return () => clearInterval(newIntervalId);
+    }
+  }, [started, isPaused]);
+
+  useEffect(() => {
+    const clockIntervalId = setInterval(() => {
+      setClock(new Date().toLocaleTimeString('es-ES'));
+    }, 1000);
+
+    return () => clearInterval(clockIntervalId);
+  }, []);
 
   function handleStart() {
-    setIsStarted(true);
+    setTime(0);
     setIsPaused(false);
-    setIsFinished(false);
+    setStartDateTime(new Date());
+    setStarted(true);
+    setShowRestartButton(false);
   }
 
   function handlePause() {
     setIsPaused(true);
+    clearInterval(intervalId);
+    setPauseDateTime(new Date());
   }
 
   function handleResume() {
     setIsPaused(false);
+    setResumeDateTime(new Date());
   }
 
   function handleFinish() {
-    setTime(0);
-    setIsStarted(false);
-    setIsPaused(false);
-    setIsFinished(true);
+    setIsPaused(true);
+    clearInterval(intervalId);
+    setFinishDateTime(new Date());
+    setDisplaySummary(true);
+    setShowRestartButton(true);
   }
 
   function handleRestart() {
     setTime(0);
-    setIsStarted(false);
     setIsPaused(false);
-    setIsFinished(false);
-  }
-
-  function handleReasonChange(e) {
-    setReason(e.target.value);
+    setStartDateTime(null);
+    setPauseDateTime(null);
+    setResumeDateTime(null);
+    setFinishDateTime(null);
+    setStarted(false);
+    setDisplaySummary(false);
+    setShowRestartButton(false);
   }
 
   const hours = Math.floor(time / (60 * 60));
   const minutes = Math.floor((time / 60) % 60);
   const seconds = Math.floor(time % 60);
 
+  // const totalHours = (time / (60 * 60)).toFixed(2);
+  const totalMinutes = Math.floor(time / 60);
+
   return (
     <div className="container">
       <div className="signin">
-        <h1 className="signin__header">Iniciar jornada de trabajo</h1>
-
-        <div className="signin__clock">{`${hours.toString().padStart(2, '0')}:${minutes
-          .toString()
-          .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}</div>
-
-        <div className="signin__info">
-          <label htmlFor="signin_reason">Motivo:</label>
-          <input
-            type="text"
-            id="signin_reason"
-            placeholder="Ej. reunión, llamadas, etc."
-            value={reason}
-            onChange={handleReasonChange}
-          />
-        </div>
-
-        <div className="signin__actions">
+        {!started && !displaySummary && !showRestartButton && (
           <button
             className="signin__button signin__button--start"
             onClick={handleStart}
-            disabled={isStarted && !isPaused}
           >
-            Iniciar
+            FICHAR
           </button>
-          <button
-            className="signin__button signin__button--pause"
-            onClick={handlePause}
-            disabled={!isStarted || isPaused || isFinished}
-          >
-            Pausar
-          </button>
-          <button
-            className="signin__button signin__button--resume"
-            onClick={handleResume}
-            disabled={!isStarted || !isPaused || isFinished}
-          >
-            Reanudar
-          </button>
-          <button
-            className="signin__button signin__button--finish"
-            onClick={handleFinish}
-            disabled={!isStarted || isFinished}
-          >
-            Finalizar
-          </button>
-          <button
-            className="signin__button signin__button--restart"
-            onClick={handleRestart}
-            disabled={!isFinished}
-          >
-            Reiniciar
-          </button>
-        </div>
+        )}
 
-        <p className="signin__summary">
-          Tiempo total: <span className="signin__time">{`${hours
-            .toString()
-            .padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds
-            .toString()
-            .padStart(2, '0')}`}</span>
-        </p>
+        {(started || displaySummary || showRestartButton) && (
+          <div>
+            {/* <h1 className="signin__header"></h1> */}
+
+            <div className="signin__clock">{hours.toString().padStart(2, '0')}:{minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}</div>
+
+            {startDateTime && (
+              <p className="signin__time-info">
+                Iniciado el {startDateTime.toLocaleDateString('es-ES')} a las{' '}
+                {startDateTime.toLocaleTimeString('es-ES')}
+              </p>
+            )}
+
+            {pauseDateTime && (
+              <p className="signin__time-info">
+                Pausado el {pauseDateTime.toLocaleDateString('es-ES')} a las{' '}
+                {pauseDateTime.toLocaleTimeString('es-ES')}
+              </p>
+            )}
+
+            {resumeDateTime && (
+              <p className="signin__time-info">
+                Reanudado el {resumeDateTime.toLocaleDateString('es-ES')} a
+                las {resumeDateTime.toLocaleTimeString('es-ES')}
+              </p>
+            )}
+
+            {finishDateTime && (
+              <p className="signin__time-info">
+                Finalizado el {finishDateTime.toLocaleDateString('es-ES')} a
+                las {finishDateTime.toLocaleTimeString('es-ES')}
+              </p>
+            )}
+
+            {intervalId && (
+              <div className="signin__clock">{`${hours
+                .toString()
+                .padStart(2, '0')}:${minutes
+                .toString()
+                .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}</div>
+            )}
+
+            <div className="signin__actions">
+              {showRestartButton ? (
+                <button
+                  className="signin__button signin__button--start"
+                  onClick={handleRestart}
+                >
+                  Inicio
+                </button>
+              ) : (
+                <>
+                  {!isPaused ? (
+                    <button
+                      className="signin__button signin__button--pause"
+                      onClick={handlePause}
+                    >
+                      Pausar
+                    </button>
+                  ) : (
+                    <button
+                      className="signin__button signin__button--resume"
+                      onClick={handleResume}
+                    >
+                      Reanudar
+                    </button>
+                  )}
+
+                {started && (
+                  <button
+                    className="signin__button signin__button--finish"
+                    onClick={handleFinish}
+                  >
+                    {showRestartButton ? 'Inicio' : 'Finalizar'}
+                  </button>
+                )}
+                </>
+              )}
+            </div>
+
+            {intervalId && (
+              <p className="signin__summary">
+                Tiempo trabajado:{' '}
+                <span className="signin__time">{`${hours
+                  .toString()
+                  .padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`}</span>
+              </p>
+            )}
+
+            {!intervalId && displaySummary && (
+              <p className="signin__summary">
+                Total horas trabajadas:{' '}
+                <span className="signin__time">{`${Math.floor(
+                  totalMinutes / 60
+                ).toString().padStart(2, '0')}:${(totalMinutes % 60)
+                  .toString()
+                  .padStart(2, '0')}`}</span>
+              </p>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-export default Login;
+export default Signin;
