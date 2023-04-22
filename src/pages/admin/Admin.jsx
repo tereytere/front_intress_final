@@ -1,5 +1,6 @@
 import React from 'react'
 import NavbarAdmin from '../../components/header/NavbarAdmin'
+import Personal from '../../components/personal/Personal'
 import SelecAdmin from '../../components/selecusuario/selecAdmin/SelecAdmin'
 import NewUser from '../../components/create/NewUser'
 import NewTask from '../../components/create/NewTask'
