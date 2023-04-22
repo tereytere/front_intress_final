@@ -1,80 +1,133 @@
-/* Estilos para dispositivos móviles */
-@media (max-width: 576px) {
+/* estilos base para dispositivos móviles */
+.container {
+  background-color: #fff;
+}
+
+.signin {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  background-color: rgba(217, 217, 217, 1);
+  box-shadow: 10px 7px 5px grey;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* .signin__header {
+  color: #008894;
+} */
+
+.signin__button {
+  width: 60%;
+  padding: 8px 24px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 5px 4px 2px grey;
+}
+
+.signin__button--start {
+  background-color: #008894;
+}
+
+.signin__button--pause {
+  background-color: #981D35;
+}
+
+.signin__button--resume {
+  background-color: rgba(0, 136, 148, 0.7);
+}
+
+.signin__button--finish {
+  background-color: #008894;
+}
+
+.signin__header {
+  font-size: 1em;
+  margin-top: 0;
+  color: #008894;
+}
+
+.signin__clock {
+  font-size: 2em;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  width: 80%;
+  background-color: #fff;
+  box-shadow: 5px 4px 2px grey;
+  border-radius: 10px;
+  border-color: 3px #000;
+  display: inline-flex;
+}
+
+.signin__time-info {
+  font-size: 0.8em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.signin__actions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.signin__summary {
+  margin-top: 24px;
+  font-size: 0.5em;
+  font-weight: bold;
+  color: #000;
+}
+
+.signin__time {
+  margin-left: 8px;
+}
+
+/* estilos para pantallas de escritorio */
+@media screen and (min-width: 768px) {
   .signin {
+    width: 90%;
+    max-width: 500px;
     height: auto;
-  }
-
-  .signin__header {
-    font-size: 2rem;
-    margin: 1rem 0;
-  }
-
-  .signin__clock {
-    font-size: 5rem;
-    margin-bottom: 1rem;
-  }
-
-  .signin__info {
-    margin-bottom: 1rem;
+    margin: 0 auto;
   }
 
   .signin__button {
-    font-size: 1.2rem;
-    margin: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0.3rem;
+    padding: 12px 58px;
+    font-size: 1em;
   }
 
-  .signin__button--start {
-    background-color: #000;
+  .signin__header {
+    font-size: 0.5em;
   }
 
-  .signin__button--pause {
-    background-color: #ffeb3b;
+  .signin__clock {
+    font-size: 4em;
+    margin-bottom: 48px;
   }
 
-  .signin__button--resume {
-    background-color: #4caf50;
-  }
-
-  .signin__button--finish {
-    background-color: #f44336;
-  }
-
-  .signin__button--restart {
-    background-color: #4caf50;
+  .signin__time-info {
+    font-size: 1em;
   }
 
   .signin__summary {
-    margin-bottom: 0.5rem;
-  }
-}
-
-/* Estilos para dispositivos de escritorio */
-@media (min-width: 577px) {
-  .signin__header {
-    font-size: 3rem;
-    margin: 2rem 0;
+    font-size: 1em;
   }
 
-  .signin__clock {
-    font-size: 10rem;
-    margin-bottom: 2rem;
+  .signin__time {
+    margin-left: 16px;
   }
 
-  .signin__info {
-    margin-bottom: 2rem;
-  }
-
-  .signin__button {
-    font-size: 1.5rem;
-    margin-right: 1rem;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    transition: opacity 0.2s ease-in-out;
-  }
-
-  .signin__button:hover {
-    opacity: 0.8;
+  .signin__actions {
+    gap: 50px;
   }
 }
