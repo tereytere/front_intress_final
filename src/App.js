@@ -1,19 +1,18 @@
 import './App.css';
 import Holidays from './components/holidays/Holidays';
 import Signin from './components/signin/Signin';
-import Login from './pages/login/Login';
-import NewUser from './components/create/NewUser';
-import NewWorkshop from './components/create/NewWorkshop';
-
+import NavbarAdmin from './components/header/NavbarAdmin'; 
+import Personal from './components/personal/Personal';
+import Browser from './components/browser/Browser';
 
 function App() {
   return (
     <div className="App">
-      <Login />
-      <NewUser />
-      <Signin />
-      <Holidays />
-      <NewWorkshop />
+      <NavbarAdmin />
+      <Browser />
+      <Personal />
+      <Signin/>
+      <Holidays/>
     </div>
   );
 }

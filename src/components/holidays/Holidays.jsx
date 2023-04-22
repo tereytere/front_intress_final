@@ -33,7 +33,7 @@ function Holidays() {
 
   return (
     <div className="holidays-container">
-      <h2 className="holidays-header">Vacaciones</h2>
+      
       <div className="holidays-calendar-container">
         
         <Calendar
@@ -45,6 +45,7 @@ function Holidays() {
       </div>
 
       <div className="holidays-info-container">
+      <h2 className="holidays-header">Vacaciones</h2>
         <p>
           Selecciona los días que deseas disfrutar de tus vacaciones. Tienes{' '}
           <span className="holidays-days-remaining">{remainingDays}</span> días
@@ -64,7 +65,7 @@ function Holidays() {
               onClick={handleVacationSubmit}
               disabled={selectedDates.length === 0}
             >
-            Enviar Vacaciones
+            Solicitar
             </button>
       </div>
     </div>
