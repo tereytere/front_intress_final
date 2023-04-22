@@ -97,7 +97,7 @@ function Signin() {
           <div>
             {/* <h1 className="signin__header"></h1> */}
 
-            <div className="signin__clock">{hours.toString().padStart(2, '0')}:{minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}</div>
+            <div className="signin__clock">{clock}</div>
 
             {startDateTime && (
               <p className="signin__time-info">

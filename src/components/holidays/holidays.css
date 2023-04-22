@@ -1,5 +1,7 @@
 .holidays-container {
+  width: 80%;
   margin-top: 3em;
+  margin-left: 8%;
   font-family: Arial, sans-serif;
   display: flex;
   flex-wrap: wrap;
@@ -7,6 +9,7 @@
   align-items: stretch;
   background-color: rgba(217, 217, 217, 1);
   box-shadow: 10px 7px 5px grey;
+  padding: 25px;
 }
 
 .holidays-calendar-container {
@@ -27,11 +30,12 @@
 }
 
 .holidays-header {
+  float:inline-end;
   font-size: 2em;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #008894;
+  color: black;
   margin-bottom: 0.5em;
 }
 
@@ -42,6 +46,11 @@
 
 .holidays-selected {
   margin-top: 1em;
+}
+
+.selected {
+  background-color: #008894;
+  color: white;
 }
 
 .holidays-selected-header {
@@ -72,13 +81,16 @@
   padding: 0.5em;
   margin-top: 2em;
   cursor: pointer;
+  position:relative;
+  bottom: 3px;
 }
 
 @media screen and (max-width: 768px) {
-  /* Estilos para dispositivos de menos de 768px de ancho */
+  
   .holidays-container {
     flex-direction: column;
     align-items: center;
+    width: 70%;
   }
 
   .holidays-calendar-container {
@@ -131,7 +143,7 @@
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
   background-color: #008894;
-  background-color: rgba(166, 0, 50, 1);
+  background-color: #C3EEF2;
 }
 
 .react-calendar__tile--now {
@@ -141,7 +153,7 @@
 
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
-  background-color: #dbe2e8;
+  background-color: #C3EEF2;
 }
 
 .react-calendar__tile {
