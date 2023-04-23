@@ -1,5 +1,5 @@
-.talleres {
-    width: 250px;
+#talleres {
+    width: 350px;
     height: 30px;
     font-size: 14px;
     padding: 5px;
@@ -10,15 +10,37 @@
     color: #333;
 }
 
-.talleres option {
-    font-size: 18px;
+option {
+    font-size: 15px;
     padding: 5px;
     background-color: #fff;
     color: #333;
 }
+.cardSelect{
+    width: 1000px;
+    margin-top: 10px;
+    background: #FFFFFF;
+    border: 1px solid #008894;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    
+}
+.selectTitle{
+    text-align: left;
+    width: 30%;
+    margin-left: 0;
+    display: inline-block;
+}
+.cardcontent{
+    text-align: justify;
+    width: 50%;
+    display: inline-block;
+    position: relative;
+    bottom: 10px;
+}
 
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 767px) {
     .talleres {
         width: 100%;
         height: 40px;
@@ -29,9 +51,26 @@
         right: 0;
     }
     
-    .talleres option {
+    option {
         font-size: 18px;
         padding: 8px;
+    }
+    .cardSelect{
+        width: 350px;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+    .selectTitle{
+        display: block;
+        text-align: center;
+        font-size: 15px;
+        width: 100%;
+    }
+    .cardcontent{
+        display: block;
+        width: 100%;
+
     }
     
 }

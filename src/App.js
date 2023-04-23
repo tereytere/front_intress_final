@@ -1,14 +1,11 @@
 import './App.css';
-import Doc from './components/documents/Doc';
-import Downloads from './components/downloads/Downloads';
-import SelecUsuario from './components/selecusuario/SelecUsuario';
+import Router from './router/Router';
+
 
 function App() {
     return (
         <div className="App">
-            <Downloads/>
-            <Doc/>
-            <SelecUsuario />
+            <Router/>
         </div>
     );
 }
