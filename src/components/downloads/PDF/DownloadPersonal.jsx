@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
-import './downloads.css'
+import '../downloads.css'
 
 function DownloadPersonal() {
     const [content, setContent] = useState('');

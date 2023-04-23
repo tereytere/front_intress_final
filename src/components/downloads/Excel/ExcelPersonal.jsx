@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { utils, writeFile } from 'xlsx';
+import '../downloads.css';
 
-const ExcelDownloadButton = () => {
+const ExcelPersonal = () => {
   const [data, setData] = useState([]);
 
   const handleDownload = async () => {
@@ -20,8 +21,8 @@ const ExcelDownloadButton = () => {
   };
 
   return (
-    <button onClick={handleDownload}>Download Excel</button>
+    <button className='ebtn' onClick={handleDownload}>Download Excel</button>
   );
 };
 
-export default ExcelDownloadButton;
+export default ExcelPersonal;
