@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
-import './downloads.css'
+import '../downloads.css'
 
-function DownloadHolidays() {
+function DownloadWorkshops() {
     const [content, setContent] = useState([]);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/apiholidays/list')
+        fetch('http://127.0.0.1:8000/apiworkshops/list')
             .then(response => response.json())
             .then(data => setContent(data))
             .catch(error => console.log(error));
@@ -16,15 +16,25 @@ function DownloadHolidays() {
     const downloadPdf = async () => {
         const tableHeader = `
           <tr>
+            <th style="font-size: 14px;">Name</th>
             <th style="font-size: 14px;">Date</th>
-            <th style="font-size: 14px;">User</th>
+            <th style="font-size: 14px;">Description</th>
+            <th style="font-size: 14px;">Tasks</th>
+            <th style="font-size: 14px;">Personal</th>
+            <th style="font-size: 14px;">Signin</th>
+            <th style="font-size: 14px;">Holidays</th>
           </tr>
         `;
 
-        const tableRows = content.map(holidays => `
+        const tableRows = content.map(workshops => `
           <tr>
-            <td>${holidays.date}</td>
-            <td>${holidays.personal}</td>
+            <td>${workshops.name}</td>
+            <td>${workshops.date}</td>
+            <td>${workshops.description}</td>
+            <td>${workshops.tasks}</td>
+            <td>${workshops.personal}</td>
+            <td>${workshops.signin}</td>
+            <td>${workshops.holidays}</td>
           </tr>
         `).join('');
 
@@ -102,9 +112,9 @@ function DownloadHolidays() {
 
     return (
         <div>
-            <button className='btn' onClick={downloadPdf}>Download Holidays PDF</button>
+            <button className='btn' onClick={downloadPdf}>Download Workshops PDF</button>
         </div>
     );
 }
 
-export default DownloadHolidays;
+export default DownloadWorkshops;

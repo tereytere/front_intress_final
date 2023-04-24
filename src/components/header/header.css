@@ -28,7 +28,7 @@ body {
   }
   
   .option {
-    color: black;
+    color: #008894;
     font-family: "Arial", sans-serif;
     text-transform: uppercase;
     font-size: 14px;
@@ -71,7 +71,7 @@ body {
     .menu {
       display: none;
       position:absolute;
-      color: black;
+      color: #008894;
       background-color: #ccc;
       top: 35px;
       text-align: left;
@@ -90,7 +90,7 @@ body {
       margin-left: 5px;
     }
     .option {
-      color: black;
+      color: #008894;
       margin-bottom: 15px;
       text-transform:capitalize;
     }
