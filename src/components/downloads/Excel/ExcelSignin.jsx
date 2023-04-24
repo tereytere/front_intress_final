@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { utils, writeFile } from 'xlsx';
 import '../downloads/downloads.css';
-const ExcelPersonal = () => {
+const ExcelSignin = () => {
   const [data, setData] = useState([]);
 
   const handleDownload = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/apipersonal/list');
+      const response = await fetch('http://127.0.0.1:8000/apisignin/list');
       const jsonData = await response.json();
       setData(jsonData);
 
@@ -24,4 +24,4 @@ const ExcelPersonal = () => {
   );
 };
 
-export default ExcelPersonal;
+export default ExcelSignin;

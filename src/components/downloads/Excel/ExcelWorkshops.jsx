@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { utils, writeFile } from 'xlsx';
 import '../downloads/downloads.css';
 
-const WorkshopsEscel = () => {
+const ExcelWorkshops = () => {
   const [data, setData] = useState([]);
 
   const handleDownload = async () => {
@@ -25,4 +25,4 @@ const WorkshopsEscel = () => {
   );
 };
 
-export default WorkshopsEscel;
+export default ExcelWorkshops;
