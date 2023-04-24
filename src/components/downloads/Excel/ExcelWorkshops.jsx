@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { utils, writeFile } from 'xlsx';
-import '../downloads/downloads.css';
+import '../downloads.css'; 
 
 const ExcelWorkshops = () => {
   const [data, setData] = useState([]);

@@ -1,9 +1,9 @@
 import './downloads.css'
-import DownloadPersonal from './DownloadPersonal';
-import DownloadWorkshops from './DownloadWorkshops';
-import DownloadDocuments from './DownloadDocuments';
-import DownloadHolidays from './DownloadHolidays';
-import DownloadSignin from './DownloadSignin';
+import DownloadPersonal from './PDF/DownloadPersonal';
+import DownloadWorkshops from './PDF/DownloadWorkshops';
+import DownloadDocuments from './PDF/DownloadDocuments';
+import DownloadHolidays from './PDF/DownloadHolidays';
+import DownloadSignin from './PDF/DownloadSignin';
 import ExcelWorkshops from './Excel/ExcelWorkshops';
 import ExcelPersonal from './Excel/ExcelPersonal';
 import ExcelDocuments from './Excel/ExcelDocuments';
