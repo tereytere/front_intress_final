@@ -1,20 +1,24 @@
 import './downloads.css'
-import DownloadPersonal from './PDF/DownloadPersonal';
-import DownloadWorkshops from './PDF/DownloadWorkshops';
-import DownloadDocuments from './PDF/DownloadDocuments';
-import DownloadHolidays from './PDF/DownloadHolidays';
-import DownloadSignin from './PDF/DownloadSignin';
-import ExcelPersonal from './Excel/ExcelPersonal'
+import DownloadPersonal from './DownloadPersonal';
+import DownloadWorkshops from './DownloadWorkshops';
+import DownloadDocuments from './DownloadDocuments';
+import DownloadHolidays from './DownloadHolidays';
+import DownloadSignin from './DownloadSignin';
+import DocumentsEscel from '../exceldownloadbutton/DocumentsEscel'
+import ExcelHolidays from '../exceldownloadbutton/ExcelHolidays'
+import WorkshopsEscel from '../exceldownloadbutton/WorkshopsEscel';
 
 function Downloads() {
     return (
-        <div className="downloads">
+        <div className="downloads" id='downloads'>
             <DownloadPersonal/>
-            <ExcelPersonal/>
             <DownloadDocuments/>
             <DownloadWorkshops/>
             <DownloadHolidays/>
             <DownloadSignin/>
+            <DocumentsEscel />
+            <ExcelHolidays />
+            <WorkshopsEscel />
         </div>
     );
 }

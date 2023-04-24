@@ -21,7 +21,7 @@ function SelecUsuario() {
     };
 
     return (
-        <div className="table">
+        <div className="table" id="selecusuario">
             <select id="talleres" onChange={handleOptionClick}>
                 <option value="">Selecciona una opción</option>
                 {repo.map(int => (
