@@ -10,7 +10,7 @@ import WorkshopsEscel from '../exceldownloadbutton/WorkshopsEscel';
 
 function Downloads() {
     return (
-        <div className="downloads">
+        <div className="downloads" id='downloads'>
             <DownloadPersonal/>
             <DownloadDocuments/>
             <DownloadWorkshops/>

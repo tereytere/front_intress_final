@@ -16,7 +16,7 @@ function NewTask() {
     // }, []);
 
     return (
-        <div className='container-new'>
+        <div className='container-new' id="new_task">
             <h2 className="title_new">Nueva Tasks</h2>
             
                 
