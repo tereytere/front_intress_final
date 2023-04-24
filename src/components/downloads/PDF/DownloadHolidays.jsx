@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
-import './downloads.css'
+import '../downloads.css'
 
-function DownloadSignin() {
+function DownloadHolidays() {
     const [content, setContent] = useState([]);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/apisignin/list')
+        fetch('http://127.0.0.1:8000/apiholidays/list')
             .then(response => response.json())
             .then(data => setContent(data))
             .catch(error => console.log(error));
@@ -16,23 +16,15 @@ function DownloadSignin() {
     const downloadPdf = async () => {
         const tableHeader = `
           <tr>
-            <th style="font-size: 14px;">TimeStart</th>
-            <th style="font-size: 14px;">TimeStop</th>
-            <th style="font-size: 14px;">TimeRestart</th>
-            <th style="font-size: 14px;">TimeFinish</th>
-            <th style="font-size: 14px;">Hourcount</th>
+            <th style="font-size: 14px;">Date</th>
             <th style="font-size: 14px;">User</th>
           </tr>
         `;
 
-        const tableRows = content.map(signin => `
+        const tableRows = content.map(holidays => `
           <tr>
-            <td>${signin.timestart}</td>
-            <td>${signin.timestop}</td>
-            <td>${signin.timerestart}</td>
-            <td>${signin.timefinish}</td>
-            <td>${signin.hourcount}</td>
-            <td>${signin.personal}</td>
+            <td>${holidays.date}</td>
+            <td>${holidays.personal}</td>
           </tr>
         `).join('');
 
@@ -110,9 +102,9 @@ function DownloadSignin() {
 
     return (
         <div>
-            <button className='btn' onClick={downloadPdf}>Download Signin PDF</button>
+            <button className='btn' onClick={downloadPdf}>Download Holidays PDF</button>
         </div>
     );
 }
 
-export default DownloadSignin;
+export default DownloadHolidays;
