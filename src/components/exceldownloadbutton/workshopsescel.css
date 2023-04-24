@@ -15,6 +15,6 @@ button {
     .button {
     font-size: 16px;
     padding: 20px 40px;
-    margin: 0;
+    margin-left: 10px;
     }
 }

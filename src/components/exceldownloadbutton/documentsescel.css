@@ -11,10 +11,10 @@ button {
     margin-top: 30px;
 }
 
-@media only screen and (max-width: 767px) {
-    .button {
-    font-size: 16px;
-    padding: 20px 40px;
-    margin: 0;
+@media only screen and (max-width: 768px) {
+    button {
+        margin: 15px auto 0;
+        padding: 12px 25px;
+        font-size: 14px;
     }
 }
