@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { utils, writeFile } from 'xlsx';
-import './documentsescel.css'; 
+import '../downloads/downloads.css'; 
 const DocumentsEscel = () => {
   const [data, setData] = useState([]);
 
@@ -20,7 +20,7 @@ const DocumentsEscel = () => {
   };
 
   return (
-    <button onClick={handleDownload}>  Documents Excel</button>
+    <button className='btn' onClick={handleDownload}> Download Documents Excel</button>
   );
 };
 

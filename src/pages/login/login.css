@@ -21,7 +21,7 @@ div{
     margin-left: 500px;
      
 }
-form{
+.login{
     width: 700px;
     margin-bottom: 90px;
     margin-right: 150px;
@@ -76,7 +76,7 @@ form{
     transition: 0.5s;
     z-index: 0;
 }
-.btn{
+.btn_login{
     display: block;
     margin-left: auto;
     padding: 15px 30px;
@@ -106,13 +106,13 @@ form{
     .box-fichaje{
         margin-left: 10px;
     }
-    form{
+    .login{
         width: 200px;
         margin-right:0px;
         margin-left: 260px;
         margin-top: 30px;
     }
-    .btn{
+    .btn_login{
         margin-top: 80px;
         margin-left: -90px;
     }

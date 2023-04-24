@@ -4,7 +4,7 @@ import SelecUsuario from '../../components/selecusuario/SelecUsuario'
 import Personal from '../../components/personal/Personal'
 import Signin from '../../components/signin/Signin'
 import Holidays from '../../components/holidays/Holidays'
-import DownloadPersonal from '../../components/downloads/DownloadPersonal'
+import Doc from '../../components/documents/Doc'
 
 function User() {
   return (
@@ -12,7 +12,9 @@ function User() {
       <NavbarUser />
       <Personal />
       <SelecUsuario />
-      <DownloadPersonal />
+      <Signin />
+      <Holidays />
+      <Doc />
 
     </div>
   )

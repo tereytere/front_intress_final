@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { utils, writeFile } from 'xlsx';
-import './excelholidays.css'; 
+import '../downloads/downloads.css';
+
 const ExcelHolidays = () => {
   const [data, setData] = useState([]);
 
@@ -20,7 +21,7 @@ const ExcelHolidays = () => {
   };
 
   return (
-    <button onClick={handleDownload}> Holidays Excel</button>
+    <button className='btn' onClick={handleDownload}> Download Holidays Excel</button>
   );
 };
 

@@ -1,11 +1,13 @@
 .downloads{
     margin: 0;
-    padding: 0;
+    padding-left: 90px;
+    padding-right: 90px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     overflow-x: hidden;
     max-width: 100%;
+    margin-bottom: 40px;
 }
 .btn{
     display: block;
@@ -18,5 +20,9 @@
     cursor: pointer;
     font-size: 16px;
     margin-top: 30px;
-    margin-right: 450px;
+}
+@media only screen and (max-width: 768px) {
+    .btn {
+        margin-right: 0px;
+    }
 }
