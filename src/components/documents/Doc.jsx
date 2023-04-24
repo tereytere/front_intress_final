@@ -15,7 +15,7 @@ function Doc() {
   };
 
   return (
-    <div>
+    <div id="doc">
       <form onSubmit={handleSubmit}>
         <Documents
           accept=".jpg,.png,.jpeg,.pdf"

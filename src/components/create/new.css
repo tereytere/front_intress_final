@@ -1,4 +1,4 @@
-h2{
+.title_new{
     text-align: left;
     margin-left: 70px;
 }
@@ -40,20 +40,32 @@ h2{
     text-decoration: none;
     border-style: none;
     color: #E5EDF5;
-    margin-right: 800px;
     box-sizing: border-box;
+    margin-top: 30px;
     font-size: 18px;
+    margin-bottom: 50px;
 }
 @media screen and (max-width:767px){
     .form-control.half-control{
         width: 48%;
     }
     .label-form{
-        font-size: 20px;
+        font-size: 17px;
     }
     .buttonc{
         font-size: 15px;
         margin-right: 0px;
+        margin-bottom: 20px;
+    }
+    .contact-box{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .title_new{
+        text-align: center;
+        margin-left: 0px;
+        font-size: 20px;
+        margin-top: 40px;
     }
 
 }

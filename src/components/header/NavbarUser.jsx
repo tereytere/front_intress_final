@@ -17,10 +17,11 @@ function NavbarUser() {
                         <input type="checkbox" id="checkbox_toggle" />    
                         <label for="checkbox_toggle" className="hamburger">&#9776;</label>  
                         <div className="menu">   
-                            <li><a className='option' href="#">Talleres</a></li>
-                            <li><a className='option' href="#">Fichaje</a></li>
-                            <li><a className='option' href="#">Vacaciones</a></li>  
-                            <li><a className='option' href="#">Documentos</a></li>  
+                            <li><a className='option' href="#personal">Perfil</a></li>
+                            <li><a className='option' href="#selecusuario">Talleres</a></li>
+                            <li><a className='option' href="#signin">Fichaje</a></li>
+                            <li><a className='option' href="#holidays">Vacaciones</a></li>  
+                            <li><a className='option' href="#doc">Documentos</a></li>  
                         </div>    
                     </ul> 
                     </div>    

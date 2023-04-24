@@ -82,7 +82,7 @@ function Signin() {
   const totalMinutes = Math.floor(time / 60);
 
   return (
-    <div className="container">
+    <div className="container_signin" id='signin'>
       <div className="signin">
         {!started && !displaySummary && !showRestartButton && (
           <button

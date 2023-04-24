@@ -24,7 +24,7 @@ function Personal() {
             </div>
             {repo.map(int => {
                 return (
-                    <div className='card-body' key={int.id}>
+                    <div className='card-body' id="personal" key={int.id}>
                         <h3 className='card-title'>Hola {int.name}!</h3>
                         {showDetails && (
                         <>

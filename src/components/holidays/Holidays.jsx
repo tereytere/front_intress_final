@@ -57,7 +57,7 @@ function Holidays() {
     date1.getFullYear() === date2.getFullYear();
 
   return (
-    <div className="holidays-container">
+    <div className="holidays-container" id='holidays'>
       <div className="holidays-calendar-container">
         <Calendar
           value={[...selectedDates, ...permanentDates]}

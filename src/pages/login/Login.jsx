@@ -109,7 +109,7 @@ function Login() {
                     </picture>
                     <img className='logo' alt="m" src="../../images/logo_intress.svg"/>                            
                         <div className='box-fichaje'>
-                            <form onSubmit={handleSubmit}>
+                            <form className='login' onSubmit={handleSubmit}>
                                 
                                <div className='inputContainer'>
                                <input
@@ -136,7 +136,7 @@ function Login() {
                                 <label className='subtitle' htmlFor='password'>Contraseña</label>
                                 </div>
 
-                                <button className='btn'>Ingresar</button>
+                                <button className='btn_login'>Ingresar</button>
                             </form>
 
                             <img className='personita' alt="m" src="../../images/personita.svg"/>                            

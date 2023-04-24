@@ -17,11 +17,11 @@ function NavbarAdmin() {
                         <input type="checkbox" id="checkbox_toggle" />    
                         <label for="checkbox_toggle" className="hamburger">&#9776;</label>  
                         <div className="menu">   
-                            <li><a className='option' href="#">Usuarios</a></li>
-                            <li><a className='option' href="#">Fichajes</a></li>
-                            <li><a className='option' href="#">Vacaciones</a></li>
-                            <li><a className='option' href="#">Talleres</a></li>  
-                            <li><a className='option' href="#">Descargas</a></li>  
+                            <li><a className='option' href="#selecadmin">Secciones</a></li>
+                            <li><a className='option' href="#new_user">Usuario</a></li>
+                            <li><a className='option' href="#new_workshops">Talleres</a></li>
+                            <li><a className='option' href="#new_task">Tareas</a></li>  
+                            <li><a className='option' href="#downloads">Descargas</a></li>  
                         </div>    
                     </ul> 
                     </div>    

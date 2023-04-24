@@ -1,5 +1,6 @@
 /* estilos base para dispositivos móviles */
-.container {
+.container_signin {
+  margin-top: 30px;
   background-color: #fff;
 }
 
