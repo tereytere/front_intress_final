@@ -16,7 +16,7 @@ function NewUser() {
     // }, []);
 
     return (
-        <div className='container-new'>
+        <div className='container-new' id="new_user">
             <h2 className="title_new">Nuevo Usuario</h2>
             
                 

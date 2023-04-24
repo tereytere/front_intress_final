@@ -49,7 +49,7 @@ function SelecAdmin() {
   }, []);
 
   return (
-    <div className="container-selec">
+    <div className="container-selec" id='selecadmin'>
       <select id='opcion'>
         <option value="opcion1">Usuarios</option>
         <option value="opcion2">Talleres</option>

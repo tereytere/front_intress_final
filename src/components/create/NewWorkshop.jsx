@@ -16,7 +16,7 @@ function NewWorkshop() {
     // }, []);
 
     return (
-        <div className='container-new'>
+        <div className='container-new' id="new_workshops">
             <h2 className="title_new">Nuevo Taller</h2>
             <form action="" className="contact-box" data-aos="fade-up" data-aos-duration="1500">
           <div className="form-control">
