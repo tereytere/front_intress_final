@@ -12,6 +12,7 @@ import Signin from '../components/signin/Signin';
 import Doc from '../components/documents/Doc';
 import Workshops from '../components/workshops/Workshops'
 import Downloads from '../components/downloads/Downloads';
+import SelectTask from '../components/selecusuario/selectTask/SelectTask';
 
 const Router = () => {
   return (
@@ -29,6 +30,7 @@ const Router = () => {
             <Route path='/doc' element={<Doc/>}></Route>
             <Route path='/workshops' element={<Workshops/>}></Route>
             <Route path='/downloads' element={<Downloads/>}></Route>
+            <Route path='/selectask' element={<SelectTask/>}></Route>
 
         </Routes>
     </BrowserRouter>
