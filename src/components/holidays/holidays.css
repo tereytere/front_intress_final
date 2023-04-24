@@ -1,111 +1,179 @@
-/* Calendario */
-
-.calendar {
-  background-color: #D9D9D9;
-  border-radius: 35px;
-  overflow: hidden;
-  margin: 0 auto;
-  width: 400px;
-  margin-bottom: 30px;
-}
-
-/* Encabezado */
-
-.header {
+.holidays-container {
+  width: 80%;
+  margin-top: 3em;
+  margin-left: 8%;
+  font-family: Arial, sans-serif;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  background-color: #D9D9D9;
-  color: black;
-  font-weight: bold;
-  font-size: 16px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 10px;
-  margin-top: 100px;
-  
-}
-.month{
-  position: absolute;
-  margin-left: 30px;
-  margin-top: 25px;
-  font-size: 32px;
+  justify-content: center;
+  align-items: stretch;
+  background-color: rgba(217, 217, 217, 1);
+  box-shadow: 10px 7px 5px grey;
+  padding: 25px;
 }
 
-@media only screen and (min-width: 600px) {
-  .hidden-mobile {
-    display: initial;
+.holidays-calendar-container {
+  width: 80%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+}
+
+.holidays-info-container {
+  width: 80%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.holidays-header {
+  float:inline-end;
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: black;
+  margin-bottom: 0.5em;
+}
+
+.holidays-days-remaining {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.holidays-selected {
+  margin-top: 1em;
+}
+
+.selected {
+  background-color: #008894;
+  color: white;
+}
+
+.holidays-selected-header {
+  font-size: 1.2em;
+  color: #008894;
+  font-weight: bold;
+}
+
+.holidays-selected-days {
+  font-size: 1em;
+  margin: 0.5em 0;
+}
+
+.holidays-selected-count {
+  font-size: 0.8em;
+  color: #888;
+  margin: 0;
+  margin-top: 0.5em;
+}
+
+.holidays-submit-button {
+  background-color: #008894;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.5em;
+  margin-top: 2em;
+  cursor: pointer;
+  position:relative;
+  bottom: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  
+  .holidays-container {
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+  }
+
+  .holidays-calendar-container {
+    width: 100%;
+    margin-bottom: 2em;
+  }
+
+  .holidays-info-container {
+    width: 100%;
+    max-width: none;
+  }
+
+  .holidays-selected-days {
+    font-size: 0.8em;
+  }
+
+  .holidays-selected-count {
+    font-size: 0.6em;
+  }
+
+  .holidays-submit-button {
+    font-size: 1em;
   }
 }
 
-/* Celdas del calendario */
+/* Estilos para el calendario */
 
-.body {
-  display: flex;
-  flex-wrap: wrap;
-  padding-left: 20px;
-  padding-right: 20px;
+.react-calendar {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  font-size: 1em;
 }
 
-.cell {
-  width: 10px;
-  height: 50px;
-  margin-bottom: 10px;
-  padding: 0px;
-  cursor: pointer;
-  flex-basis: 14.28%;
-  text-align: center;
-  vertical-align: middle; 
+.react-calendar__navigation {
+  margin: 0.5em 0;
 }
 
-/* Días seleccionados */
-
-.selected {
-  background-color: rgba(0, 136, 148, 1);
-  border-radius: 50%;
-  color: #fff;
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #888;
 }
 
-/* Días de fiesta */
-
-.holiday {
-  background-color: rgba(242, 201, 76, 1);
-  font-weight: bold;
+.react-calendar__tile--active {
+  background-color: #008894;
+  color: white;
 }
 
-/* Botón de solicitar vacaciones */
-
-.vacation-btn {
-  display: block;
-  background-color: transparent;
-  margin-right: 40px;
-  padding-bottom: 30px;
-  border: none;
-  color: rgba(0, 136, 148, 1);
-  border-radius: 10px;
-  cursor: pointer;
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background-color: #008894;
+  background-color: #C3EEF2;
 }
 
-/* Footer */
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.2rem;
-  background-color: #D9D9D9;
+.react-calendar__tile--now {
+  background-color: #f0f4f8;
   color: black;
-  font-weight: bold;
 }
 
-.footer div:first-child {
-  text-transform: capitalize;
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background-color: #C3EEF2;
 }
 
-#resultado{
-  width: 150px;
-  font-size: 15px;
-  margin-left: 30px;
-  margin-bottom: 30px;
+.react-calendar__tile {
+  border: none;
+  padding: 0.7em;
+  margin: 0.3em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
 }
 
+.react-calendar__month-view__weekdays__weekday {
+  font-size: 0.8em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #008894;
+}
+
+.react-calendar__month-view__days__day {
+  font-size: 0.8em;
+  text-align: center;
+  color: black;
+}

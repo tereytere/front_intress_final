@@ -4,6 +4,9 @@ import DownloadWorkshops from './DownloadWorkshops';
 import DownloadDocuments from './DownloadDocuments';
 import DownloadHolidays from './DownloadHolidays';
 import DownloadSignin from './DownloadSignin';
+import DocumentsEscel from '../exceldownloadbutton/DocumentsEscel'
+import ExcelHolidays from '../exceldownloadbutton/ExcelHolidays'
+import WorkshopsEscel from '../exceldownloadbutton/WorkshopsEscel';
 
 function Downloads() {
     return (
@@ -13,6 +16,9 @@ function Downloads() {
             <DownloadWorkshops/>
             <DownloadHolidays/>
             <DownloadSignin/>
+            <DocumentsEscel />
+            <ExcelHolidays />
+            <WorkshopsEscel />
         </div>
     );
 }

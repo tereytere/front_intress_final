@@ -76,7 +76,6 @@ body {
       top: 35px;
       text-align: left;
       padding: 10px;
-      left: 400%;
       border-radius: 15%;
     }
     .hamburger {
@@ -84,7 +83,7 @@ body {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      margin-left: 25vh;
+      margin-left: 80px;
     }
     .logoimg{
       width: 90px;

@@ -1,163 +1,199 @@
-import React, { useState, useEffect } from "react";
-import "./signin.css";
+import React, { useState, useEffect } from 'react';
+import './signin.css';
 
 function Signin() {
-  const [timestart, setTimestart] = useState("");
-  const [timestop, setTimestop] = useState("");
-  const [timeRestart, setTimeRestart] = useState("");
-  const [timefinish, setTimefinish] = useState("");
-  const [hourcount, setHourcount] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
-  const [lastDay, setLastDay] = useState("");
-  const [totalHours, setTotalHours] = useState({ date: "", hours: 0 });
-  const [lastStartTime, setLastStartTime] = useState("");
-  const [hoursData, setHoursData] = useState([]);
-
-  const handleTimeStart = () => {
-    const now = new Date();
-    const day = now.toLocaleDateString("es-ES");
-    const time = now.toLocaleTimeString("es-ES");
-    if (day === lastDay) {
-      setTimestart(`${day} ${time}`);
-    } else {
-      setTimestart(`${day} ${time}`);
-      setLastStartTime(day);
-    }
-    setIsRunning(true);
-  };
-
-  const handleTimeStop = () => {
-    const now = new Date();
-    const day = now.toLocaleDateString("es-ES");
-    const time = now.toLocaleTimeString("es-ES");
-    setTimestop(`${day} ${time}`);
-    setIsRunning(false);
-    const { start } = JSON.parse(localStorage.getItem(lastDay)) || { start: "" };
-    const startTime = new Date(start);
-    const endTime = new Date(`${day} ${time}`);
-    const timeDiff = endTime.getTime() - startTime.getTime();
-    const hoursWorked = Math.abs(timeDiff / (1000 * 60 * 60));
-    setHourcount(totalHours + hoursWorked);
-  };
-
-  const handleTimeRestart = () => {
-    const now = new Date();
-    const day = now.toLocaleDateString("es-ES");
-    const time = now.toLocaleTimeString("es-ES");
-    setTimeRestart(`${day} ${time}`);
-    setIsRunning(true);
-  };
-
-  const handleTimeFinish = async () => {
-    const now = new Date();
-    const day = now.toLocaleDateString("es-ES");
-    const time = now.toLocaleTimeString("es-ES");
-    setTimefinish(`${day} ${time}`);
-    setIsRunning(false);
- 
-    // Send the data to the API
-    const response = await fetch("http://127.0.0.1:8000/signin/create", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ timestart, timestop, timeRestart, timefinish }),
-    });
-    const data = await response.json();
-    console.log(data);
-
-    // Save the time worked for the last day
-    if (lastDay !== "") {
-      localStorage.setItem(lastDay, JSON.stringify({ start: timestart, stop: timestop, restart: timeRestart, finish:timefinish }));
-    }
-
-    // Set the last day to the current day
-    setLastDay(day);
-  };
-
-  const calculateTotalHoursWorked = () => {
-    let total = 0;
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      const { start, restart, stop, finish } = JSON.parse(localStorage.getItem(key));
-      const startTime = new Date(start);
-      const restartTime = new Date(restart);
-      const endTime = new Date(stop);
-      const finishTime = new Date(finish);
-      const timeDiff = endTime.getTime() - startTime.getTime();
-      const restartDiff = finishTime.getTime() - restartTime.getTime();
-      const hoursWorked = Math.abs(timeDiff / (1000 * 60 * 60));
-      const hoursBreak = Math.abs(restartDiff / (1000 * 60 * 60));
-      total += hoursWorked - hoursBreak;
-    }
-    const now = new Date();
-    const day = now.toLocaleDateString("es-ES");
-    const hoursWorked = total.toFixed(2);
-    setTotalHours({ date: day, hours: hoursWorked });
-    return total;
-  };
+  const [time, setTime] = useState(0);
+  const [intervalId, setIntervalId] = useState(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const [clock, setClock] = useState(new Date().toLocaleTimeString());
+  const [startDateTime, setStartDateTime] = useState(null);
+  const [pauseDateTime, setPauseDateTime] = useState(null);
+  const [resumeDateTime, setResumeDateTime] = useState(null);
+  const [finishDateTime, setFinishDateTime] = useState(null);
+  const [started, setStarted] = useState(false);
+  const [displaySummary, setDisplaySummary] = useState(false);
+  const [showRestartButton, setShowRestartButton] = useState(false);
 
   useEffect(() => {
-    setTotalHours(calculateTotalHoursWorked());
-  }, [hourcount]);
+    if (started && !isPaused) {
+      const newIntervalId = setInterval(() => {
+        setTime((prevTime) => {
+          return prevTime + 1;
+        });
+      }, 1000);
+      setIntervalId(newIntervalId);
 
-  const formatTime = (timeInSeconds) => {
-    const hours = Math.floor(timeInSeconds / 3600);
-    const minutes = Math.floor((timeInSeconds % 3600) / 60);
-    return `${hours} horas ${minutes} minutos`;
-  };
+      return () => clearInterval(newIntervalId);
+    }
+  }, [started, isPaused]);
 
   useEffect(() => {
-    // Get the hours data from the API
-    const fetchHoursData = async () => {
-      const response = await fetch("http://127.0.0.1:8000/signin");
-      const data = await response.json();
-      setHoursData(data);
-    };
-    fetchHoursData();
+    const clockIntervalId = setInterval(() => {
+      setClock(new Date().toLocaleTimeString('es-ES'));
+    }, 1000);
+
+    return () => clearInterval(clockIntervalId);
   }, []);
 
-  useEffect(() => {
-    setTotalHours(calculateTotalHoursWorked());
-  }, [hourcount, hoursData]);
+  function handleStart() {
+    setTime(0);
+    setIsPaused(false);
+    setStartDateTime(new Date());
+    setStarted(true);
+    setShowRestartButton(false);
+  }
+
+  function handlePause() {
+    setIsPaused(true);
+    clearInterval(intervalId);
+    setPauseDateTime(new Date());
+  }
+
+  function handleResume() {
+    setIsPaused(false);
+    setResumeDateTime(new Date());
+  }
+
+  function handleFinish() {
+    setIsPaused(true);
+    clearInterval(intervalId);
+    setFinishDateTime(new Date());
+    setDisplaySummary(true);
+    setShowRestartButton(true);
+  }
+
+  function handleRestart() {
+    setTime(0);
+    setIsPaused(false);
+    setStartDateTime(null);
+    setPauseDateTime(null);
+    setResumeDateTime(null);
+    setFinishDateTime(null);
+    setStarted(false);
+    setDisplaySummary(false);
+    setShowRestartButton(false);
+  }
+
+  const hours = Math.floor(time / (60 * 60));
+  const minutes = Math.floor((time / 60) % 60);
+  const seconds = Math.floor(time % 60);
+
+  // const totalHours = (time / (60 * 60)).toFixed(2);
+  const totalMinutes = Math.floor(time / 60);
 
   return (
-    <div className="signin-container" style={{ backgroundColor: "rgba(217, 217, 217, 1)" }}>
-      <h1 className="signin-title">Fichar</h1>
-      <div className="signin-item">
-        <label className="signin-label" htmlFor="timestart">
-          Hora de inicio
-        </label>
-        <button onClick={handleTimeStart} className="signin-button">
-          {timestart ? `Inicio (${timestart})` : "Inicio"}
-        </button>
-        <div className="signin-timeContainer">{timestart}</div>
-      </div>
-      <div className="signin-item">
-        <label className="signin-label" htmlFor="timerestart">
-          Control de jornada
-        </label>
-        <button onClick={isRunning ? handleTimeStop : handleTimeRestart} className="signin-button">
-          {isRunning ? "Stop" : "Restart"}
-        </button>
-      </div>
-      <div className="signin-item">
-        <label className="signin-label" htmlFor="timefinish">
-          Fin jornada
-        </label>
-        <button onClick={handleTimeFinish} className="signin-button">
-          {timefinish ? `Fin jornada (${timefinish})` : "Fin jornada"}
-        </button>
-      </div>
-      <div className="signin-item">
-        <label className="signin-label" htmlFor="hourcount">
-          Horas trabajadas
-        </label>
-        <input
-          type="text"
-          name="hourcount"
-          id="hourcount"
-          value={totalHours ? `${totalHours.date} - ${formatTime(totalHours.hours * 3600)} horas` : "0 horas"}
-          readOnly
-        />
+    <div className="container_signin">
+      <div className="signin">
+        {!started && !displaySummary && !showRestartButton && (
+          <button
+            className="signin__button signin__button--start"
+            onClick={handleStart}
+          >
+            FICHAR
+          </button>
+        )}
+
+        {(started || displaySummary || showRestartButton) && (
+          <div>
+            {/* <h1 className="signin__header"></h1> */}
+
+            <div className="signin__clock">{clock}</div>
+
+            {startDateTime && (
+              <p className="signin__time-info">
+                Iniciado el {startDateTime.toLocaleDateString('es-ES')} a las{' '}
+                {startDateTime.toLocaleTimeString('es-ES')}
+              </p>
+            )}
+
+            {pauseDateTime && (
+              <p className="signin__time-info">
+                Pausado el {pauseDateTime.toLocaleDateString('es-ES')} a las{' '}
+                {pauseDateTime.toLocaleTimeString('es-ES')}
+              </p>
+            )}
+
+            {resumeDateTime && (
+              <p className="signin__time-info">
+                Reanudado el {resumeDateTime.toLocaleDateString('es-ES')} a
+                las {resumeDateTime.toLocaleTimeString('es-ES')}
+              </p>
+            )}
+
+            {finishDateTime && (
+              <p className="signin__time-info">
+                Finalizado el {finishDateTime.toLocaleDateString('es-ES')} a
+                las {finishDateTime.toLocaleTimeString('es-ES')}
+              </p>
+            )}
+
+            {intervalId && (
+              <div className="signin__clock">{`${hours
+                .toString()
+                .padStart(2, '0')}:${minutes
+                .toString()
+                .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}</div>
+            )}
+
+            <div className="signin__actions">
+              {showRestartButton ? (
+                <button
+                  className="signin__button signin__button--start"
+                  onClick={handleRestart}
+                >
+                  Inicio
+                </button>
+              ) : (
+                <>
+                  {!isPaused ? (
+                    <button
+                      className="signin__button signin__button--pause"
+                      onClick={handlePause}
+                    >
+                      Pausar
+                    </button>
+                  ) : (
+                    <button
+                      className="signin__button signin__button--resume"
+                      onClick={handleResume}
+                    >
+                      Reanudar
+                    </button>
+                  )}
+
+                {started && (
+                  <button
+                    className="signin__button signin__button--finish"
+                    onClick={handleFinish}
+                  >
+                    {showRestartButton ? 'Inicio' : 'Finalizar'}
+                  </button>
+                )}
+                </>
+              )}
+            </div>
+
+            {intervalId && (
+              <p className="signin__summary">
+                Tiempo trabajado:{' '}
+                <span className="signin__time">{`${hours
+                  .toString()
+                  .padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`}</span>
+              </p>
+            )}
+
+            {!intervalId && displaySummary && (
+              <p className="signin__summary">
+                Total horas trabajadas:{' '}
+                <span className="signin__time">{`${Math.floor(
+                  totalMinutes / 60
+                ).toString().padStart(2, '0')}:${(totalMinutes % 60)
+                  .toString()
+                  .padStart(2, '0')}`}</span>
+              </p>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
