@@ -1,4 +1,4 @@
-.form-control {
+.form-buscador {
     display:flex;
     border-radius: 15px;
     border:0cap;
@@ -19,6 +19,10 @@
     text-decoration: none;
     color:black;
 }
+.hidden {
+    display: none !important;
+  }
+
 
 /*table{ 
     visibility: hidden;
@@ -26,7 +30,7 @@
 }*/
 
 @media screen and (max-width: 767px) {
-    .form-control{
+    .form-buscador{
         width: 25%;
         height: 5%;
         margin-left:33%;

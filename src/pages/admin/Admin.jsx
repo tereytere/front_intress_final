@@ -6,11 +6,13 @@ import NewUser from '../../components/create/NewUser'
 import NewTask from '../../components/create/NewTask'
 import NewWorkshop from '../../components/create/NewWorkshop'
 import Downloads from '../../components/downloads/Downloads'
+import Browser from '../../components/browser/Browser'
 
 function Admin() {
   return (
     <div>
       <NavbarAdmin />
+      <Browser />
       <Personal />
       <SelecAdmin />
       <NewUser />

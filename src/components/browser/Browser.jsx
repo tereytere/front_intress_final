@@ -9,10 +9,10 @@ const [ search, setSearch ] = useState("")
 const URL = 'http://127.0.0.1:8000/apipersonal/list'
 
 const showData= async () => {
-    const response = await fetch(URL)
-    const data = await response.json()
-    //console.log(data)
-    setUsers(data)
+    const response = await fetch(URL);
+    const data = await response.json();
+    console.log(data);
+    setUsers(data);
 }
 
 //funcion de busqueda
@@ -26,33 +26,38 @@ useEffect(()=> {
 }, [])
 
 //metodo de filtrado
-let results = []
-if(!search){
-    results = users
-}else{
-    results = users.filter((dato) =>
-    dato.name.toLowerCase().includes(search.toLocaleLowerCase())
-    )
-}
- //renderizamos la vista
- return (
+const filteredData = search
+    ? users.filter((user) => {
+        const includesName = user.name.toLowerCase().includes(search.toLowerCase());
+        console.log(`Checking name '${user.name}', found=${includesName}`);
+        const includesSurname = user.surname.toLowerCase().includes(search.toLowerCase());
+        console.log(`Checking surname '${user.surname}', found=${includesSurname}`);
+        return includesName || includesSurname;
+      })
+    : [];
+
+  // Renderizar vista
+  return (
     <div>
       <div>
-        <input className="form-control" value={search} onChange={searcher} type='text' placeholder='Buscar usuari@' />
+        <input className="form-buscador" value={search} onChange={searcher} type='text' placeholder='Buscar usuari@' />
         <img className="lupa" src="./images/lupa.png" alt="lupa" />
-        </div>
-        <table>
-            <tbody>
-                { results.map((user) =>(
-                <tr key={user.id}> 
-                    <td><a className="linkuser"href='/user'>{user.name}</a></td>
-                    <td>{user.surname}</td>
-                </tr>
-              ))}
-            </tbody>
-        
+      </div>
+      {filteredData.length > 0 ? (
+        <table className='buscador'>
+          <tbody>
+            { filteredData.map((user) =>(
+              <tr key={user.id}> 
+                <td><a className="linkuser" href='/user'>{user.name}</a></td>
+                <td>{user.surname}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
-          <p className="resultados">Resultados encontrados: {results.length}</p>
+      ) : (
+        <p className='hidden'>No se encontraron resultados</p>
+      )}
+      <p className="resultados">Resultados encontrados: {filteredData.length}</p>
     </div>
   )
 }
