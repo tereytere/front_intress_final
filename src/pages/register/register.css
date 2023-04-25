@@ -1,5 +1,9 @@
+.register_section{
+    margin-top: 70px;
+}
 .box-registration{
     margin-bottom: 30px;
+    margin-top: 30px;
 }
 .btn_register{
     background-color: #008894;

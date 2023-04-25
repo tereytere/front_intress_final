@@ -40,7 +40,7 @@ function Register() {
                     <h2>¡Registro completado!</h2>
                 </section> 
             ) : (
-                <section>
+                <section className='register_section'>
                     <h1>Registro de usuario</h1>
                         <div className='box-registration'>
                             <form onSubmit={handleSubmit}>
