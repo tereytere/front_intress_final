@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { utils, writeFile } from 'xlsx';
-import '../downloads/downloads.css';
-
-const WorkshopsEscel = () => {
+import '../downloads.css'; 
+const ExcelPersonal = () => {
   const [data, setData] = useState([]);
 
   const handleDownload = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/apiworkshops/list');
+      const response = await fetch('http://127.0.0.1:8000/apipersonal/list');
       const jsonData = await response.json();
       setData(jsonData);
 
@@ -21,8 +20,8 @@ const WorkshopsEscel = () => {
   };
 
   return (
-    <button className='btn' onClick={handleDownload}> Download Workshops Excel</button>
+    <button className='btn' onClick={handleDownload}>Personal Excel</button>
   );
 };
 
-export default WorkshopsEscel;
+export default ExcelPersonal;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
-import './downloads.css'
+import '../downloads.css'
 
 function DownloadHolidays() {
     const [content, setContent] = useState([]);
@@ -102,7 +102,7 @@ function DownloadHolidays() {
 
     return (
         <div>
-            <button className='btn' onClick={downloadPdf}>Download Holidays PDF</button>
+            <button className='btn' onClick={downloadPdf}>Holidays PDF</button>
         </div>
     );
 }
