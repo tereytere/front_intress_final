@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# Intress CRL Puente de Vallecas
+<p>Application developed for CRL Puente de Vallecas, aimed at employees, where they can clock in their working day, ask for holidays and justify their absences. At the same time, depending on the user's role, they can assign tasks and create new users and workshops.</p>
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2>Installation requirements ⚗️</h2>
+<ul>
+  <li>Node: https://nodejs.org/es</li>
+</ul>
+<br>
+<h2>Installation process 💻</h2>
 
-## Available Scripts
+<h3>Download our  repo</h3>
 
-In the project directory, you can run:
 
-### `npm start`
+```
+git clone: https://github.com/kiaramm10/front_intress_final.git
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h3>Installing symfony packages</h3>
 
-### `npm test`
+```
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm update
+```
 
-### `npm run build`
+<br>
+<h2>Application Initialization✨</h2>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<p>Add the following extension to the URL that will appear by default: </p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+FOTO
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
+<h3> Test Initialization🏅 </h3>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+npm test
+```
+   
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br>
+<h2> Requirements (StakeHolders)🔬</h2>
+<ul>
+  <li>Backend MUST be decoupled in Symfony</li>
+  <li>Clean code</li>
+  <li>follow agile methodologies</li>
+  <li>At least have an operating local environment </li>
+  <liA CRUD MUST be made for the different users.</li>
+  <li>Different users MUST be set up: admin and user</li>
+</ul>
+<br>
+<h2>Stack</h2>
+<ul>
+  <li>JavaScript</li>
+  <li>CSS</li>
+  <li>React JS</li>
+  <li>AOX</li>
+  <li>Date-fns</li>
+  <li>Moment moment-duration-formats</li>
+  <li>React-calendar</li>
+  <li>React-datepicker</li>
+  <li>JWT-decode</li>
+  <li>Visual Studio Code</li>
+</ul>
+<br>
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h2>Long Term Improvements  </h2>
+<ul>
+  <li>For future sprints we plan to finish connecting the POST method from the back to the front and create the Master user view </li>
+</ul>
+<h2>Authors ✍️ </h2>
+<ul>
+<li><a href="https://github.com/kiaramm10">@kiaramm10</a></li>
+<li><a href="https://github.com/22Lau">@22Lau</a></li>
+<li><a href="https://github.com/tereytere">@tereytere</a></li>
+<li><a href="https://github.com/milarte1">@milarte1</a></li>
+<li><a href="https://github.com/SpaceOddity7">@SpaceOddity7</a></li>
+</ul>
