@@ -1,6 +1,7 @@
 # Intress CRL Puente de Vallecas
 <p>Application developed for CRL Puente de Vallecas, aimed at employees, where they can clock in their working day, ask for holidays and justify their absences. At the same time, depending on the user's role, they can assign tasks and create new users and workshops.</p>
 <br>
+ng)
 
 <h2>Installation requirements ⚗️</h2>
 <ul>
@@ -36,7 +37,11 @@ npm start
 
 <p>Add the following extension to the URL that will appear by default: </p>
 
-FOTO
+
+# Figma
+
+![Captura de pantalla 2023-04-25 080056](https://user-images.githubusercontent.com/117031310/234202441-904058d0-2413-46d7-b02f-500d26512bcb.png)
+![Captura de pantalla 2023-04-25 090958](https://user-images.githubusercontent.com/117031310/234202526-02ab2817-0d81-43b5-bb21-16a25b851006.p
 
 
 
