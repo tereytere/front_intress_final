@@ -21,7 +21,7 @@ const ExcelWorkshops = () => {
   };
 
   return (
-    <button className='btn' onClick={handleDownload}> Download Workshops Excel</button>
+    <button className='btn' onClick={handleDownload}>Workshops Excel</button>
   );
 };
 

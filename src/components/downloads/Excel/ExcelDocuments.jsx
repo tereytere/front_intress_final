@@ -20,7 +20,7 @@ const ExcelDocuments = () => {
   };
 
   return (
-    <button className='btn' onClick={handleDownload}>Download Documents Excel</button>
+    <button className='btn' onClick={handleDownload}>Documents Excel</button>
   );
 };
 

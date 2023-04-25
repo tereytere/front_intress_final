@@ -21,7 +21,7 @@ const ExcelHolidays = () => {
   };
 
   return (
-    <button className='btn' onClick={handleDownload}> Download Holidays Excel</button>
+    <button className='btn' onClick={handleDownload}>Holidays Excel</button>
   );
 };
 
