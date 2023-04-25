@@ -110,7 +110,7 @@ function DownloadSignin() {
 
     return (
         <div>
-            <button className='btn' onClick={downloadPdf}>Download Signin PDF</button>
+            <button className='btn' onClick={downloadPdf}>Sign-in PDF</button>
         </div>
     );
 }

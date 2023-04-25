@@ -126,7 +126,7 @@ function DownloadDocuments() {
 
     return (
         <div>
-            <button className='btn' onClick={downloadPdf}>Download Documents PDF</button>
+            <button className='btn' onClick={downloadPdf}>Documents PDF</button>
         </div>
     );
 }
