@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
-import './downloads.css'
+import '../downloads.css'
 
-function DownloadPersonal() {
+function DownloadDocuments() {
     const [content, setContent] = useState('');
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/apipersonal/list')
+        fetch('http://127.0.0.1:8000/apidocuments/list')
             .then(response => response.json())
             .then(data => setContent(data))
             .catch(error => console.log(error));
@@ -16,31 +16,19 @@ function DownloadPersonal() {
     const downloadPdf = async () => {
         const tableHeader = `
           <tr>
-            <th style="font-size: 14px;">Image</th>
-            <th style="font-size: 14px;">Name</th>
-            <th style="font-size: 14px;">Surname</th>
-            <th style="font-size: 14px;">Rol</th>
-            <th style="font-size: 14px;">Vacations</th>
-            <th style="font-size: 14px;">Workshops</th>
-            <th style="font-size: 14px;">Signin</th>
-            <th style="font-size: 14px;">Holidays</th>
-            <th style="font-size: 14px;">Documents</th>
-            <th style="font-size: 14px;">Vacation</th>
+            <th style="font-size: 14px;">Document</th>
+            <th style="font-size: 14px;">Docname</th>
+            <th style="font-size: 14px;">Description</th>
+            <th style="font-size: 14px;">User</th>
           </tr>
         `;
       
-        const tableRows = content.map(personal => `
+        const tableRows = content.map(documents => `
           <tr>
-            <td><img src="${personal.image}" /></td>
-            <td>${personal.name}</td>
-            <td>${personal.surname}</td>
-            <td>${personal.rol}</td>
-            <td>${personal.vacations}</td>
-            <td>${personal.workshops}</td>
-            <td>${personal.signin}</td>
-            <td>${personal.holidays}</td>
-            <td>${personal.documents}</td>
-            <td>${personal.vacation}</td>
+            <td><img src="${documents.document}" /></td>
+            <td>${documents.docname}</td>
+            <td>${documents.description}</td>
+            <td>${documents.personal}</td>
           </tr>
         `).join('');
       
@@ -138,9 +126,9 @@ function DownloadPersonal() {
 
     return (
         <div>
-            <button className='btn' onClick={downloadPdf}>Download Personal PDF</button>
+            <button className='btn' onClick={downloadPdf}>Documents PDF</button>
         </div>
     );
 }
 
-export default DownloadPersonal;
+export default DownloadDocuments;

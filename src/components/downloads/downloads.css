@@ -4,7 +4,7 @@
     padding-right: 90px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     overflow-x: hidden;
     max-width: 100%;
     margin-bottom: 40px;
@@ -25,17 +25,4 @@
     .btn {
         margin-right: 0px;
     }
-}
-.ebtn{
-    display: block;
-    margin-left: auto;
-    padding: 15px 30px;
-    border-color: #008894;
-    background-color: #ffffff;
-    color: #008894;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 30px;
-    margin-right: 450px;
 }
