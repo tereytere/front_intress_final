@@ -4,7 +4,7 @@
     padding-right: 90px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     overflow-x: hidden;
     max-width: 100%;
     margin-bottom: 40px;

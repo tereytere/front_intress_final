@@ -102,7 +102,7 @@ function DownloadHolidays() {
 
     return (
         <div>
-            <button className='btn' onClick={downloadPdf}>Download Holidays PDF</button>
+            <button className='btn' onClick={downloadPdf}>Holidays PDF</button>
         </div>
     );
 }

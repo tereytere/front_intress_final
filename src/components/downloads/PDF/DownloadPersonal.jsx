@@ -138,7 +138,7 @@ function DownloadPersonal() {
 
     return (
         <div>
-            <button className='btn' onClick={downloadPdf}>Download Personal PDF</button>
+            <button className='btn' onClick={downloadPdf}>Personal PDF</button>
         </div>
     );
 }

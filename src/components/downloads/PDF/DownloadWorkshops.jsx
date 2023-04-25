@@ -112,7 +112,7 @@ function DownloadWorkshops() {
 
     return (
         <div>
-            <button className='btn' onClick={downloadPdf}>Download Workshops PDF</button>
+            <button className='btn' onClick={downloadPdf}>Workshops PDF</button>
         </div>
     );
 }
