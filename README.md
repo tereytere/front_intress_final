@@ -41,6 +41,7 @@ npm start
 # Figma
 
 ![Captura de pantalla 2023-04-25 080056](https://user-images.githubusercontent.com/117031310/234202441-904058d0-2413-46d7-b02f-500d26512bcb.png)
+
 ![Captura de pantalla 2023-04-25 090958](https://user-images.githubusercontent.com/117031310/234202526-02ab2817-0d81-43b5-bb21-16a25b851006.png)
 
 
