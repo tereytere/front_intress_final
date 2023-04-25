@@ -7,6 +7,9 @@ import NewTask from '../../components/create/NewTask'
 import NewWorkshop from '../../components/create/NewWorkshop'
 import Downloads from '../../components/downloads/Downloads'
 import Browser from '../../components/browser/Browser'
+import SelectTask from '../../components/selecusuario/selectTask/SelectTask'
+import Register from '../register/Register'
+
 
 function Admin() {
   return (
@@ -18,9 +21,10 @@ function Admin() {
       <NewUser />
       <NewWorkshop />
       <NewTask />
+      <SelectTask />
       <h2>Descargas</h2>
       <Downloads />
-      
+      <Register/>
     </div>
   )
 }
